@@ -1,8 +1,28 @@
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link'
+import BarHamburger from './BarHamburger'
+import { hrefs } from './hrefs'
 import style from './header.module.css'
+import { Language } from '../../assets/icons'
 
 const Navigation = () => {
+  const [activeMenu, setActiveMenu] = useState(false)
+  const handleMenu = () => setActiveMenu(!activeMenu)
+  let cleanup = true
+  useEffect(() => {
+    if (activeMenu) {
+      document.body.style.overflowY = 'hidden'
+      document.body.style.paddingRight = '1rem'
+    } else {
+      document.body.style.overflowY = 'auto'
+      document.body.style.paddingRight = '0px'
+    }
+    return () => {
+      cleanup = false
+    }
+  }, [activeMenu])
+
   return (
     <header className={style.header}>
       <div className={style.nav}>
@@ -13,9 +33,28 @@ const Navigation = () => {
           <h1>Markdown Preview</h1>
         </div>
         <nav className={style.navbar}>
-          <ul className={style.content}>
-            {Array.from(Array(2).keys()).map(key => (<li key={key}>{key}</li>))}
-          </ul>
+          <button onClick={handleMenu} className={style.burgerBtn} aria-label='mobile-navigation' aria-expanded={activeMenu}>
+            <BarHamburger />
+          </button>
+          {activeMenu && (
+            <ul className={style.MenuContent}>
+              {hrefs.map((link, key) => (
+                <li key={key} className={style.link}>
+                  <Link href={link.href}><a>{link.name}</a></Link>
+                </li>
+              ))}
+              <li className={style.language}>
+                <Language />
+                <span>English</span>
+              </li>
+              <li className={style.appearance}>
+                <span>Appearance</span>
+                <button>
+                  <span>x</span>
+                </button>
+              </li>
+            </ul>
+          )}
         </nav>
       </div>
     </header>
