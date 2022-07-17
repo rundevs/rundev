@@ -11,6 +11,11 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name='description' content='Markdown Preview is the best and easier editor on the web' />
+          <meta name="viewport" content="width=device-width,initial-scale=1" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Markdown Preview" />
+          <meta property="og:description" content="Markdown Preview is the best and easier editor on the web" />
+          <meta name="twitter:card" content="summary_large_image" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
