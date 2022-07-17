@@ -4,21 +4,22 @@ import Link from 'next/link'
 import BarHamburger from './BarHamburger'
 import { hrefs } from './hrefs'
 import style from './header.module.css'
-import { Language, Moon, Sun } from '../../assets/icons'
-import useTheme from '../../hooks/useTheme'
+import Appearance from './display/Appearance'
+import Languages from './display/Languages'
+import { GitHub } from '../../assets/icons'
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState(false)
-  const { isDark, handleTheme } = useTheme()
   const handleMenu = () => setActiveMenu(!activeMenu)
+
   let cleanup = true
   useEffect(() => {
-    if (activeMenu) {
-      document.body.style.overflowY = 'hidden'
-      document.body.style.paddingRight = '1rem'
-    } else {
-      document.body.style.overflowY = 'auto'
-      document.body.style.paddingRight = '0px'
+    if (cleanup) {
+      if (activeMenu) {
+        document.body.style.overflowY = 'hidden'
+      } else {
+        document.body.style.overflowY = 'auto'
+      }
     }
     return () => {
       cleanup = false
@@ -45,20 +46,34 @@ const Navigation = () => {
                   <Link href={link.href}><a>{link.name}</a></Link>
                 </li>
               ))}
-              <li className={style.language}>
-                <Language />
-                <span>English</span>
-              </li>
-              <li className={style.appearance}>
-                <span>Appearance</span>
-                <button onClick={handleTheme} className={style.toggleTheme}>
-                  <span>
-                    {isDark ? <Moon /> : <Sun />}
-                  </span>
-                </button>
-              </li>
+              <li style={{ margin: '0.5rem 0' }}><Languages /></li>
+              <li className={style.appearanceMobile}><Appearance /></li>
             </ul>
           )}
+          {hrefs.map((link, key) => (
+            <Link href={link.href} key={key}>
+              <a className={style.navLink}>{link.name}</a>
+            </Link>
+          ))}
+          <div className={style.hoverBtn}>
+            <button
+              type='button'
+              aria-haspopup={true}
+              aria-expanded={false}
+              aria-label='extra navigation'
+            >
+              ...
+            </button>
+            <div className={style.hoverMenu}>
+              <div className={style.menuLang}><Languages /></div>
+              <div className={style.appearanceDesktop}><Appearance /></div>
+              <div className={style.menuSocial}>
+                <Link href='https://github.com/Simply-Markdown/mdpreview-web'>
+                  <a target='_blank' title='github' rel='noopener noreferrer'><GitHub /></a>
+                </Link>
+              </div>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
