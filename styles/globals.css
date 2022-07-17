@@ -1,4 +1,10 @@
-
+:root {
+  --md-white: #FFFFFF;
+  --md-white: #FFFFFF;
+  --md-black: #1a1a1a;
+  --md-black-pure: #000000;
+  --md-indigo: #213547;
+}
 /* automatic dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -7,30 +13,39 @@
     --md-bg-3: #3a3a3a;
     --md-bg-4: #1a1a1a;
     --md-divider-light-1: #5454547a;
+    --md-divider-light-2: #aaaaaabd;
     --md-text-1: #FFFFFFDE;
     --md-text-2: #EBEBEB99;
     --md-text-3: #3defe9;
-    --md-black: #1a1a1a;
-    --md-black-pure: #000000;
-    --md-indigo: #213547;
     --md-theme: dark;
   }
 }
 
 /* automatic/manual light mode */
-:root,
-:root.light {
+/* :root.light  */
+:root {
   --md-bg-1: #ffffff;
   --md-bg-2: #f9f9f9;
   --md-bg-3: #f2f2f2;
   --md-bg-4: #e5e5e5;
   --md-divider-light-1: #3c3c3c1f;
+  --md-divider-light-2: #42424275;
   --md-text-1: #213547;
   --md-text-2: #3C3C3CB3;
   --md-text-3: #3defe9;
-  --md-black: #1a1a1a;
-  --md-black-pure: #000000;
   --md-theme: light;
+}
+[data-theme='dark'] {
+  --md-bg-1: #242424;
+  --md-bg-2: #2f2f2f;
+  --md-bg-3: #3a3a3a;
+  --md-bg-4: #1a1a1a;
+  --md-divider-light-1: #5454547a;
+  --md-divider-light-2: #aaaaaabd;
+  --md-text-1: #FFFFFFDE;
+  --md-text-2: #EBEBEB99;
+  --md-text-3: #3defe9;
+  --md-theme: dark;
 }
 /* manual dark mode */
 :root.dark {
@@ -39,12 +54,10 @@
   --md-bg-3: #3a3a3a;
   --md-bg-4: #1a1a1a;
   --md-divider-light-1: #5454547a;
+  --md-divider-light-2: #aaaaaabd;
   --md-text-1: #FFFFFFDE;
   --md-text-2: #EBEBEB99;
   --md-text-3: #3defe9;
-  --md-black: #1a1a1a;
-  --md-black-pure: #000000;
-  --md-indigo: #213547;
   --md-theme: dark;
 }
 /* custom position */
@@ -67,6 +80,8 @@ html.dark {
 }
 
 body {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -100,10 +115,17 @@ ul {
   align-items: center;
 }
 
-h1,h2,h3,h4 {
+h1,h2,h3,h4,a {
   padding: 0;
   margin: 0;
   font-size: inherit;
   line-height: 24px;
   color: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    overflow-y: auto;
+    padding-right: 0px;
+  }
 }
