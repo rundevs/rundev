@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Fragment } from 'react'
 import Layout from '../components/layout/Layout'
 
-export default function Home() {
+function Home() {
   return (
     <Fragment>
       <Head>
@@ -26,3 +26,4 @@ export default function Home() {
     </Fragment>
   )
 }
+export default Home
