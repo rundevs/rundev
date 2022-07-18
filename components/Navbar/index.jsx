@@ -4,10 +4,12 @@ import Link from 'next/link'
 import BarHamburger from './BarHamburger'
 import { hrefs } from './hrefs'
 import style from './header.module.css'
-import { Language } from '../../assets/icons'
+import { Language, Moon, Sun } from '../../assets/icons'
+import useTheme from '../../hooks/useTheme'
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState(false)
+  const { isDark, handleTheme } = useTheme()
   const handleMenu = () => setActiveMenu(!activeMenu)
   let cleanup = true
   useEffect(() => {
@@ -49,8 +51,10 @@ const Navigation = () => {
               </li>
               <li className={style.appearance}>
                 <span>Appearance</span>
-                <button>
-                  <span>x</span>
+                <button onClick={handleTheme} className={style.toggleTheme}>
+                  <span>
+                    {isDark ? <Moon /> : <Sun />}
+                  </span>
                 </button>
               </li>
             </ul>
