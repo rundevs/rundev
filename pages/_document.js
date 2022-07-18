@@ -7,11 +7,10 @@ class MyDocument extends Document {
   }
   render() {
     return (
-      <Html lang="en-US" className='dark'>
+      <Html lang="en-US">
         <Head>
           <meta charSet="utf-8" />
           <meta name='description' content='Markdown Preview is the best and easier editor on the web' />
-          <meta name="viewport" content="width=device-width,initial-scale=1" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Markdown Preview" />
           <meta property="og:description" content="Markdown Preview is the best and easier editor on the web" />
