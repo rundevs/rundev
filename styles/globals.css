@@ -1,5 +1,32 @@
-/* custom color */
-:root {
+* {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important
+}
+
+/* automatic dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-bg-1: #242424;
+    --md-bg-2: #2f2f2f;
+    --md-bg-3: #3a3a3a;
+    --md-bg-4: #1a1a1a;
+    --md-divider-light-1: #5454547a;
+    --md-text-1: #FFFFFFDE;
+    --md-text-2: #EBEBEB99;
+    --md-text-3: #3defe9;
+    --md-black: #1a1a1a;
+    --md-black-pure: #000000;
+    --md-indigo: #213547;
+    --md-theme: dark;
+  }
+}
+
+/* automatic/manual light mode */
+:root,
+:root.light {
   --md-bg-1: #ffffff;
   --md-bg-2: #f9f9f9;
   --md-bg-3: #f2f2f2;
@@ -12,6 +39,21 @@
   --md-black-pure: #000000;
   --md-theme: light;
 }
+/* manual dark mode */
+:root.dark {
+  --md-bg-1: #242424;
+  --md-bg-2: #2f2f2f;
+  --md-bg-3: #3a3a3a;
+  --md-bg-4: #1a1a1a;
+  --md-divider-light-1: #5454547a;
+  --md-text-1: #FFFFFFDE;
+  --md-text-2: #EBEBEB99;
+  --md-text-3: #3defe9;
+  --md-black: #1a1a1a;
+  --md-black-pure: #000000;
+  --md-indigo: #213547;
+  --md-theme: dark;
+}
 /* custom position */
 :root {
   --md-burger-right-1: 0%;
@@ -22,20 +64,27 @@
   --md-burger-top-1: 0%;
   --md-burger-top-2: 45%;
 }
-* {
+*, :before,
+:after {
   box-sizing: border-box;
 }
 
-html,
+html.dark {
+  color-scheme: dark;
+}
+
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color-scheme: var(--md-theme);
   background-color: var(--md-bg-1);
   color: var(--md-text-2);
   min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  width: 100%;
+  direction: ltr;
 }
 
 a {
@@ -50,21 +99,6 @@ ul {
   padding: 0;
 }
 
-.dark {
-  --md-bg-1: #242424;
-  --md-bg-2: #2f2f2f;
-  --md-bg-3: #3a3a3a;
-  --md-bg-4: #1a1a1a;
-  --md-divider-light-1: #5454547a;
-  --md-text-1: #FFFFFFDE;
-  --md-text-2: #EBEBEB99;
-  --md-text-3: #3defe9;
-  --md-black: #1a1a1a;
-  --md-black-pure: #000000;
-  --md-indigo: #213547;
-  --md-theme: dark;
-}
-
 #__next {
   min-height: 100vh;
   width: 100%;
@@ -77,5 +111,6 @@ h1,h2,h3,h4 {
   padding: 0;
   margin: 0;
   font-size: inherit;
+  line-height: 24px;
   color: inherit;
 }
