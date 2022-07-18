@@ -1,10 +1,3 @@
-* {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  -ms-transition: none !important;
-  transition: none !important
-}
 
 /* automatic dark mode */
 @media (prefers-color-scheme: dark) {
@@ -61,7 +54,7 @@
   --md-burger-right-3: 20%;
   --md-burger-rotate-1: 0deg;
   --md-burger-rotate-2: 0deg;
-  --md-burger-top-1: 0%;
+  --md-burger-top-1: 0;
   --md-burger-top-2: 45%;
 }
 *, :before,
