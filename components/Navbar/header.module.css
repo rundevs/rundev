@@ -1,6 +1,5 @@
 .header {
   width: 100%;
-  max-width: 1376px;
   margin: 0 auto;
   border-bottom: 1px solid var(--md-divider-light-1);
   height: var(--md-nav-height);
@@ -8,6 +7,7 @@
   z-index: 10;
   position: relative;
   flex-shrink: 0;
+  max-width: 1365px;
 }
 
 .nav {
@@ -327,7 +327,7 @@
   .header {
     position: fixed;
     top: 0;
-    left: 0;
+    left: auto;
     height: 72px;
     background-color: var(--md-bg-blur);
     border: none;
