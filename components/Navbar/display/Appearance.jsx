@@ -29,18 +29,17 @@ const Appearance = () => {
 
   return (
     <div className={style.appearance}>
-      <span>Appearance</span>
-      {mounted && <button
+      <button
         onClick={handleTheme}
         className={style.toggleTheme}
         role='button'
         aria-label='toggle darks mode'
-        aria-details={checkIfIsDark() ? 'dark' : 'light'}
+        aria-details={mounted && (checkIfIsDark() ? 'dark' : 'light') || 'dark'}
       >
         <span>
-          {checkIfIsDark() ? <Moon /> : <Sun />}
+          {mounted && (checkIfIsDark() ? <Moon /> : <Sun />) || <Moon />}
         </span>
-      </button>}
+      </button>
     </div>
   )
 }
