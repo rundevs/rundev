@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import BarHamburger from './BarHamburger'
-import { hrefs } from './hrefs'
+import { hrefs } from '../../assets/hrefs'
 import style from './header.module.css'
 import Appearance from './display/Appearance'
 import Languages from './display/Languages'
-import { GitHub } from '../../assets/icons'
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState(false)
@@ -36,6 +35,12 @@ const Navigation = () => {
           <h1>Markdown Preview</h1>
         </div>
         <nav className={style.navbar}>
+          {hrefs.map((link, key) => (
+            <Link href={link.href} key={key}>
+              <a className={style.navLink}>{link.name}</a>
+            </Link>
+          ))}
+          <Appearance />
           <button onClick={handleMenu} className={style.burgerBtn} aria-label='mobile-navigation' aria-expanded={activeMenu}>
             <BarHamburger />
           </button>
@@ -47,33 +52,8 @@ const Navigation = () => {
                 </li>
               ))}
               <li style={{ margin: '0.5rem 0' }}><Languages /></li>
-              <li className={style.appearanceMobile}><Appearance /></li>
             </ul>
           )}
-          {hrefs.map((link, key) => (
-            <Link href={link.href} key={key}>
-              <a className={style.navLink}>{link.name}</a>
-            </Link>
-          ))}
-          <div className={style.hoverBtn}>
-            <button
-              type='button'
-              aria-haspopup={true}
-              aria-expanded={false}
-              aria-label='extra navigation'
-            >
-              ...
-            </button>
-            <div className={style.hoverMenu}>
-              <div className={style.menuLang}><Languages /></div>
-              <div className={style.appearanceDesktop}><Appearance /></div>
-              <div className={style.menuSocial}>
-                <Link href='https://github.com/Simply-Markdown/mdpreview-web'>
-                  <a target='_blank' title='github' rel='noopener noreferrer'><GitHub /></a>
-                </Link>
-              </div>
-            </div>
-          </div>
         </nav>
       </div>
     </header>

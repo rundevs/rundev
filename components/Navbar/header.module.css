@@ -3,8 +3,11 @@
   max-width: 1376px;
   margin: 0 auto;
   border-bottom: 1px solid var(--md-divider-light-1);
-  height: 57px;
+  height: var(--md-nav-height);
   backdrop-filter: saturate(50%) blur(8px);
+  z-index: 10;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .nav {
@@ -26,6 +29,7 @@
   position: relative;
   width: max-content;
 }
+
 .title h1 {
   font-weight: 500;
   color: var(--md-text-1);
@@ -38,6 +42,7 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
 .logo {
   padding: 0;
   margin: 0;
@@ -57,6 +62,7 @@
 
 .navbar {
   height: 100%;
+  gap: 1rem;
 }
 
 .burgerBtn {
@@ -73,7 +79,6 @@
 }
 
 /* handle burger nav */
-
 .burger {
   width: 18px;
   height: 18px;
@@ -161,16 +166,25 @@
   overflow-y: auto;
 }
 .MenuContent li {
-  width: 288px;
+  max-width: 288px;
+  width: 100%;
 }
+
+.navLink {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .link, .navLink {
-  padding: 1rem 0 0.9rem 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.5;
   font-weight: 500;
   color: var(--md-text-1);
 }
 
 .link{
+  padding: 1rem 0rem;
   border-bottom: 1px solid var(--md-divider-light-1);
 }
 .language {
@@ -190,16 +204,9 @@
 .link:hover, .navLink:hover {
   color: var(--md-text-3);
 }
-.appearanceMobile {
-  background-color: var(--md-bg-2);
-  padding: 1rem 0;
-  border-radius: 0.5rem;
-}
+
 .appearance {
-  padding: 0 1rem;
   color: var(--md-text-2);
-  font-size: 0.85rem;
-  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -320,8 +327,12 @@
   .header {
     position: fixed;
     top: 0;
+    left: 0;
     height: 72px;
-    background-color: #242424b3;
+    background-color: var(--md-bg-blur);
     border: none;
+  }
+  .navLink {
+    font-size: 1.1rem;
   }
 }
