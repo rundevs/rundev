@@ -12,6 +12,7 @@
     --md-bg-2: #2f2f2f;
     --md-bg-3: #3a3a3a;
     --md-bg-4: #1a1a1a;
+    --md-bg-blur: #242424a3;
     --md-divider-light-1: #5454547a;
     --md-divider-light-2: #aaaaaabd;
     --md-text-1: #FFFFFFDE;
@@ -21,13 +22,13 @@
   }
 }
 
-/* automatic/manual light mode */
 /* :root.light  */
 :root {
   --md-bg-1: #ffffff;
   --md-bg-2: #f9f9f9;
   --md-bg-3: #f2f2f2;
   --md-bg-4: #e5e5e5;
+  --md-bg-blur: #ffffffa3;
   --md-divider-light-1: #3c3c3c1f;
   --md-divider-light-2: #42424275;
   --md-text-1: #213547;
@@ -40,6 +41,7 @@
   --md-bg-2: #2f2f2f;
   --md-bg-3: #3a3a3a;
   --md-bg-4: #1a1a1a;
+  --md-bg-blur: #242424a3;
   --md-divider-light-1: #5454547a;
   --md-divider-light-2: #aaaaaabd;
   --md-text-1: #FFFFFFDE;
@@ -69,6 +71,7 @@
   --md-burger-rotate-2: 0deg;
   --md-burger-top-1: 0;
   --md-burger-top-2: 45%;
+  --md-nav-height: 57px;
 }
 *, :before,
 :after {
@@ -84,15 +87,15 @@ body {
   -webkit-tap-highlight-color: transparent;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: var(--md-bg-1);
   color: var(--md-text-2);
-  min-height: 100vh;
+  height: 100vh;
   text-rendering: optimizeLegibility;
   font-synthesis: none;
   width: 100%;
   direction: ltr;
+  overflow-x: hidden;
 }
 
 a {
@@ -108,7 +111,7 @@ ul {
 }
 
 #__next {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
