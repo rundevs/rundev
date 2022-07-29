@@ -4,6 +4,7 @@
   --md-black: #1a1a1a;
   --md-black-pure: #000000;
   --md-indigo: #213547;
+  --md-action: #6bd968;
 }
 /* automatic dark mode */
 @media (prefers-color-scheme: dark) {
@@ -29,6 +30,7 @@
   --md-bg-3: #f2f2f2;
   --md-bg-4: #e5e5e5;
   --md-bg-blur: #ffffffa3;
+  --md-shadow: #000000a3;
   --md-divider-light-1: #3c3c3c1f;
   --md-divider-light-2: #42424275;
   --md-text-1: #213547;
@@ -40,8 +42,9 @@
   --md-bg-1: #242424;
   --md-bg-2: #2f2f2f;
   --md-bg-3: #3a3a3a;
-  --md-bg-4: #1a1a1a;
+  --md-bg-4: #2B2B2B;
   --md-bg-blur: #242424a3;
+  --md-shadow: #000000;
   --md-divider-light-1: #5454547a;
   --md-divider-light-2: #aaaaaabd;
   --md-text-1: #FFFFFFDE;
