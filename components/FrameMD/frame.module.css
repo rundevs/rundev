@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #5454547a;
-  max-width: 900px;
+  max-width: 650px;
   margin: 0 auto;
   width: 100%;
   border-radius: 0.5rem;
   overflow: hidden;
   z-index: 1;
   position: relative;
-  transform: scale(1.03);
+  transform: scale(1.05);
   box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.336);
 }
 
@@ -20,7 +20,7 @@
   border-bottom: 1px solid #5454547a;
   background-color: #2b2d38;
   gap: 0.5rem;
-  padding: 0.8rem 0.5rem;
+  padding: 0.5rem 0.6rem;
 }
 
 .header span {
@@ -55,7 +55,7 @@
   width: 50%;
   border-right: 1px solid #5454547a;
   font-family: "Source Code Pro", monospace;
-  padding-bottom: 8rem;
+  font-size: 0.7rem;
 }
 
 .editor ::selection {
@@ -87,7 +87,7 @@
 }
 
 .heading, .headingText {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.4;
   font-weight: 500;
 }
@@ -118,6 +118,8 @@
   width: 50%;
   min-width: 300px;
   padding: 0rem 1rem;
+  font-size: 0.8rem;
+  padding-bottom: 0.4rem;
 }
 
 .preview ::selection {
@@ -125,28 +127,28 @@
   color: #ffffff99;
 }
 
-.preview h1,
-.preview h2,
-.preview h3 {
+.linePreview h1,
+.linePreview h2,
+.linePreview h3 {
   color: #ebebeb;
 }
 
-.preview h1 {
-  font-size: 1.3rem;
+.linePreview h1 {
+  font-size: 1.2rem;
   padding: 0.5rem 0;
   font-weight: 500;
   border-bottom: 2px solid #5454547a;
 }
 
-.preview h2 {
-  font-size: 1.1rem;
+.h2 {
+  font-size: 0.9rem;
   padding: 0.5rem 0;
   font-weight: 500;
   border-bottom: 1px solid #5454547a;
 }
 
 .preview h3 {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding: 0.5rem 0;
   font-weight: 400;
 }
@@ -154,7 +156,6 @@
 .preview li {
   list-style: outside;
   font-weight: 300;
-  font-size: 0.9rem;
 }
 
 .code {
@@ -166,9 +167,33 @@
   border-radius: 0.4rem;
 }
 
+.langjs {
+  font-size: 0.7rem;
+}
+
 .quote {
   border-left: 3px solid rgb(134, 126, 126);
   color: #ebebeb99;
   opacity: 0.7;
   padding-left: 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  .frame {
+    transform: scale(1.1);
+  }
+
+  .editor {
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .frame {
+    max-width: 560px;
+  }
+
+  .editor {
+    padding-bottom: 3rem;
+  }
 }

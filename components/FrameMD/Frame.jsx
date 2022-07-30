@@ -70,7 +70,7 @@ const Frame = () => (
           <h1>Markdown Preview</h1>
         </div>
         <div className={style.linePreview}>
-          <h2>Basic Syntax</h2>
+          <h2 className={style.h2}>Basic Syntax</h2>
         </div>
         <div className={style.linePreview}>
           <h3>Heading 3</h3>
