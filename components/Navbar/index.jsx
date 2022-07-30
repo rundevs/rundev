@@ -6,6 +6,7 @@ import { hrefs } from '../../assets/hrefs'
 import style from './header.module.css'
 import Appearance from './display/Appearance'
 import Languages from './display/Languages'
+import NavLinks from './Links/NavLinks'
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState(false)
@@ -35,16 +36,18 @@ const Navigation = () => {
           <h1>Markdown Preview</h1>
         </div>
         <nav className={style.navbar}>
-          {hrefs.map((link, key) => (
-            <Link href={link.href} key={key}>
-              <a className={style.navLink}>{link.name}</a>
-            </Link>
-          ))}
+          <NavLinks viewport='desktop' />
           <Appearance />
-          <button onClick={handleMenu} className={style.burgerBtn} aria-label='mobile-navigation' aria-expanded={activeMenu}>
+          <button
+            onClick={handleMenu}
+            className={style.burgerBtn}
+            aria-label='mobile-navigation'
+            aria-expanded={activeMenu}
+          >
             <BarHamburger />
           </button>
-          {activeMenu && (
+          {activeMenu && <NavLinks viewport='mobile' />}
+          {/* {activeMenu && (
             <ul className={style.MenuContent}>
               {hrefs.map((link, key) => (
                 <li key={key} className={style.link}>
@@ -53,7 +56,7 @@ const Navigation = () => {
               ))}
               <li style={{ margin: '0.5rem 0' }}><Languages /></li>
             </ul>
-          )}
+          )} */}
         </nav>
       </div>
     </header>
