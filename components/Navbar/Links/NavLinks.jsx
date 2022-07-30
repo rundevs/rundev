@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { hrefs } from '../../../assets/hrefs'
+import { GitHub } from '../../../assets/icons'
 import Languages from '../display/Languages'
 import style from './navlinks.module.css'
 
@@ -15,6 +16,11 @@ const NavLinks = ({ viewport = 'desktop', }) => {
         </li>
       ))}
       {viewport === 'mobile' && <li style={{ margin: '0.5rem 0' }}><Languages /></li>}
+      <li className={style.social}>
+        <Link href='https://github.com/Simply-Markdown/mdpreview-web'>
+          <a target='_blank'>GitHub<GitHub /></a>
+        </Link>
+      </li>
     </ul>
   )
 }

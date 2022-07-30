@@ -1,3 +1,3 @@
 export const hrefs = [
-  { name: 'Try app', href: '/app' },
+  { name: 'Try App', href: '/app' },
 ]
