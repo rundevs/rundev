@@ -18,7 +18,7 @@
     --md-divider-light-2: #aaaaaabd;
     --md-text-1: #FFFFFFDE;
     --md-text-2: #EBEBEB99;
-    --md-text-3: #3defe9;
+    --md-text-3: #00a0e9;
     --md-theme: dark;
   }
 }
@@ -35,7 +35,7 @@
   --md-divider-light-2: #42424275;
   --md-text-1: #213547;
   --md-text-2: #3C3C3CB3;
-  --md-text-3: #3defe9;
+  --md-text-3: #00a0e9;
   --md-theme: light;
 }
 [data-theme='dark'] {
@@ -49,7 +49,7 @@
   --md-divider-light-2: #aaaaaabd;
   --md-text-1: #FFFFFFDE;
   --md-text-2: #EBEBEB99;
-  --md-text-3: #3defe9;
+  --md-text-3: #00a0e9;
   --md-theme: dark;
 }
 /* manual dark mode */
@@ -62,7 +62,7 @@
   --md-divider-light-2: #aaaaaabd;
   --md-text-1: #FFFFFFDE;
   --md-text-2: #EBEBEB99;
-  --md-text-3: #3defe9;
+  --md-text-3: #00a0e9;
   --md-theme: dark;
 }
 /* custom position */
@@ -127,6 +127,11 @@ h1,h2,h3,h4,a {
   font-size: inherit;
   line-height: 24px;
   color: inherit;
+}
+
+::selection {
+  background: var(--md-bg-4);
+  color: var(--md-text-1);
 }
 
 @media screen and (min-width: 768px) {
