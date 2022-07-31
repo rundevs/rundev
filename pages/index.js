@@ -1,41 +1,21 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment } from 'react'
 import Frame from '../components/FrameMD/Frame'
+import Hero from '../components/Hero/Hero'
 import Layout from '../components/layout/Layout'
 import style from '../styles/index.module.css'
 
 function Home() {
-  const [platform, setPlatform] = useState('Platform')
-
-  useEffect(() => {
-    typeof navigator !== 'undefined' &&
-      setPlatform(navigator.userAgent.indexOf('Win') !== -1 ? 'Windows' : 'Mac')
-  }, [])
 
   return (
     <Fragment>
       <Head>
-        <title>Markdown Preview | Editor</title>
+        <title>Markdown Preview | An editor with real-time preview</title>
         <meta name="description" content="This application is a editor of markdown with preview." />
       </Head>
       <Layout>
         <section className={style.heroSection}>
-          <header className={style.title}>
-            <h2>The <span className={style.textYellow}> Markdown language</span> text editor with <span className={style.textBlue}>preview</span></h2>
-          </header>
-          <div className={style.tagline}>
-            <p>Get maximum readability and ease, taking workflow and accomplish more.</p>
-          </div>
-          <article className={style.action}>
-            <Link href='/app'>
-              <a className={style.actionLink}>Open in your Browser</a>
-            </Link>
-            <Link href='/'>
-              <a className={style.actionLink}>Download for {platform}</a>
-            </Link>
-          </article>
+          <Hero />
           <article className={style.textGoals}>
             <div className={style.regularText}>
               <span>It is....</span>
