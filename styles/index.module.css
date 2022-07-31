@@ -8,75 +8,6 @@
   max-width: 1365px;
 }
 
-.title {
-  width: 100%;
-  color: var(--md-text-1);
-  padding: 1rem 0 2rem;
-}
-
-.title h2 {
-  font-size: 2.2rem;
-  line-height: 1.2;
-}
-
-.textYellow {
-  color: #fecc1b;
-}
-
-.textBlue {
-  color: #00a0e9;
-}
-.tagline {
-  width: 100%;
-}
-
-.tagline p {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--md-text-2);
-  line-height: 1.5;
-  margin: 0;
-}
-
-.action {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  padding: 3rem 0;
-  position: relative;
-}
-
-.actionLink {
-  background-color: var(--md-bg-2);
-  padding: 0.5rem 1.5rem;
-  border-radius: 1rem;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: var(--md-text-1);
-  font-weight: 700;
-  letter-spacing: -0.2px;
-  z-index: 2;
-}
-
-.actionLink:first-child {
-  background-color: #00a0e9;
-  color: var(--md-bg-1);
-}
-
-.actionLink:first-child:hover {
-  background-color: #0076ad;
-  transition: background-color 0.2s ease-out;
-}
-
-.actionLink:hover {
-  background-color: var(--md-bg-3);
-  transition: background-color 0.2s, box-shadow 0.2s ease-out;
-  box-shadow: 0rem 0.3rem 1rem #013a572c;
-}
-
 .textGoals {
   display: flex;
   flex-direction: column;
@@ -106,21 +37,25 @@
   padding-left: 10vh;
   text-align: left;
 }
+
 .regularText :nth-child(3) {
   color: #3992ff;
   text-align: right;
   padding-right: 10vh;
 }
+
 .regularText :nth-child(4) {
   color: #fecc1b;
   text-align: left;
   padding-left: 10vh;
 }
+
 .regularText :nth-child(5) {
   color: #3defe9;
   text-align: right;
   padding-right: 10vh;
 }
+
 .regularText :nth-child(6) {
   color: #d83bd2;
   text-align: left;
@@ -235,25 +170,6 @@
     padding: 3rem 3rem;
   }
 
-  .title, .tagline {
-    max-width: 570px;
-    margin: 0 auto;
-    padding: 2rem 0rem;
-  }
-
-  .title h2 {
-    font-size: 3rem;
-    text-align: center;
-  }
-
-  .tagline p {
-    font-size: 1.4rem;
-  }
-
-  .action {
-    justify-content: center;
-  }
-
   .demo {
     bottom: -1px;
   }
@@ -265,15 +181,7 @@
 
 @media screen and (min-width: 960px) {
   .heroSection {
-    padding: 7rem 5rem;
-  }
-
-  .title h2 {
-    font-size: 3.5rem;
-  }
-
-  .tagline p {
-    font-size: 1.8rem;
+    padding: 7rem 0;
   }
 
   .textGoals {
@@ -282,10 +190,12 @@
     align-items: flex-end;
     gap: 0rem;
     margin-top: 3rem;
+    padding-left: 2rem;
   }
 
   .regularText {
     width: 50%;
+    order: 2;
   }
 
   .regularText span {
@@ -294,8 +204,9 @@
   }
 
   .demo {
-    bottom: calc(100vh - 75%);
+    bottom: calc((100vh - 350px) / 2);
     transform: translateX(0%);
     width: 50%;
+    order: 1;
   }
 }
