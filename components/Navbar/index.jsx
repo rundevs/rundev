@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import BarHamburger from './BarHamburger'
-import { hrefs } from '../../assets/hrefs'
-import style from './header.module.css'
 import Appearance from './display/Appearance'
-import Languages from './display/Languages'
 import NavLinks from './Links/NavLinks'
+import style from './header.module.css'
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState(false)
@@ -22,6 +19,7 @@ const Navigation = () => {
       }
     }
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       cleanup = false
     }
   }, [activeMenu])
@@ -47,16 +45,6 @@ const Navigation = () => {
             <BarHamburger />
           </button>
           {activeMenu && <NavLinks viewport='mobile' />}
-          {/* {activeMenu && (
-            <ul className={style.MenuContent}>
-              {hrefs.map((link, key) => (
-                <li key={key} className={style.link}>
-                  <Link href={link.href}><a>{link.name}</a></Link>
-                </li>
-              ))}
-              <li style={{ margin: '0.5rem 0' }}><Languages /></li>
-            </ul>
-          )} */}
         </nav>
       </div>
     </header>
