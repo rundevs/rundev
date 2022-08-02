@@ -32,7 +32,7 @@ function Home() {
             </div>
           </article>
         </section>
-        <section className={style.platforms}>
+        <section id='platforms' className={style.platforms}>
           <h2>Platforms</h2>
           <p>Latest version: v0.2.0</p>
           <table className={style.table}>
