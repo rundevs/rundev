@@ -1,14 +1,31 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import useClient from '../../hooks/useClient'
 import style from './hero.module.css'
+
+function checkPlatform() {
+  if (typeof navigator !== 'undefined') {
+    return [navigator.userAgent.indexOf('Win')].includes(-1)
+      ? [navigator.userAgent.indexOf('Linux')].includes(-1) ? 'Mac' : 'Linux' : 'Windows'
+  }
+  return 'Platform'
+}
+
+function checkIfMobile() {
+  if (typeof navigator !== 'undefined') {
+    return [navigator.userAgent.indexOf('Mobile')].includes(-1) ? false : true
+  }
+  return false
+}
 
 const Hero = () => {
   const [platform, setPlatform] = useState('Platform')
+  const { mounted } = useClient()
 
   useEffect(() => {
     typeof navigator !== 'undefined' &&
-      setPlatform(navigator.userAgent.indexOf('Win') !== -1 ? 'Windows' : 'Mac')
+      setPlatform(checkPlatform)
   }, [])
 
   return (
@@ -24,8 +41,10 @@ const Hero = () => {
           <Link href='/app'>
             <a className={style.actionLink}>Open in your Browser</a>
           </Link>
-          <Link href='/'>
-            <a title='pre-release' className={style.actionLink}>Download for {platform}</a>
+          <Link href={mounted && checkIfMobile() ? '#platforms' : '/'}>
+            <a title='pre-release' className={style.actionLink}>
+              {mounted && checkIfMobile() ? 'Download' : `Download for ${platform}`}
+            </a>
           </Link>
         </div>
       </div>
