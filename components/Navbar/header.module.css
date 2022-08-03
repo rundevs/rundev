@@ -3,7 +3,6 @@
   margin: 0 auto;
   border-bottom: 1px solid var(--md-divider-light-1);
   height: var(--md-nav-height);
-  backdrop-filter: saturate(50%) blur(8px);
   z-index: 10;
   position: relative;
   flex-shrink: 0;
@@ -208,7 +207,7 @@
   box-shadow: 1px 1px 2px 0px rgba(26, 26, 26, 0.103);
 }
 .toggleTheme[aria-details='dark'] span {
-  background-color: var(--md-black);
+  background-color: var(--md-cursor);
   transform: translateX(100%);
   padding-left: 1px;
 }
@@ -288,8 +287,7 @@
     position: fixed;
     top: 0;
     left: auto;
-    height: 72px;
     background-color: var(--md-bg-blur);
-    border: none;
+    backdrop-filter: blur(8px);
   }
 }
