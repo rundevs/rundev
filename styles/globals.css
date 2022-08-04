@@ -1,35 +1,35 @@
 :root {
   --md-white: #FFFFFF;
-  --md-white: #FFFFFF;
   --md-black: #1a1a1a;
   --md-black-pure: #000000;
   --md-indigo: #213547;
   --md-action: #6bd968;
+  /* Theme One Dark */
+  --md-chalky: #e5c07b;
+  --md-coral: #f44250;
+  --md-cyan: #3defe9;
+  --md-invalid: #ffffff;
+  --md-ivory: #abb2bf;
+  --md-stone: #7d8799;
+  --md-malibu: #55a1ff;
+  --md-sage: #6bd968;
+  --md-whiskey: #fecc1b;
+  --md-violet: #d83bd2;
+  --md-darkBackground: #2c313a73;
+  --md-background: #282c34;
+  --md-highlightBackground: #2c313a;
+  --md-tooltipBackground: #353a42;
+  --md-selection: #3E4451;
+  --md-cursor: #3992ff;
 }
-/* automatic dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --md-bg-1: #242424;
-    --md-bg-2: #2f2f2f;
-    --md-bg-3: #3a3a3a;
-    --md-bg-4: #1a1a1a;
-    --md-bg-blur: #242424a3;
-    --md-divider-light-1: #5454547a;
-    --md-divider-light-2: #aaaaaabd;
-    --md-text-1: #FFFFFFDE;
-    --md-text-2: #EBEBEB99;
-    --md-text-3: #00a0e9;
-    --md-theme: dark;
-  }
-}
-
-/* :root.light  */
+/* :root light  */
 :root {
-  --md-bg-1: #ffffff;
-  --md-bg-2: #f9f9f9;
+  --md-bg-1: var(--md-white);
+  --md-bg-2: #f6f8fa;
   --md-bg-3: #f2f2f2;
   --md-bg-4: #e5e5e5;
-  --md-bg-blur: #ffffffa3;
+  --md-bg-blur: #f6f8fa73;
+  --md-bg-editor: var(--md-white);
   --md-shadow: #000000a3;
   --md-divider-light-1: #3c3c3c1f;
   --md-divider-light-2: #42424275;
@@ -37,35 +37,26 @@
   --md-text-2: #3C3C3CB3;
   --md-text-3: #00a0e9;
   --md-theme: light;
+  --md-text-selection: var(--md-divider-light-1);
 }
+/* :root dark */
 [data-theme='dark'] {
   --md-bg-1: #242424;
   --md-bg-2: #2f2f2f;
   --md-bg-3: #3a3a3a;
   --md-bg-4: #2B2B2B;
-  --md-bg-blur: #242424a3;
+  --md-bg-editor: var(--md-background);
   --md-shadow: #000000;
+  --md-bg-blur: #242424a3;
   --md-divider-light-1: #5454547a;
   --md-divider-light-2: #aaaaaabd;
   --md-text-1: #FFFFFFDE;
   --md-text-2: #EBEBEB99;
   --md-text-3: #00a0e9;
+  --md-text-selection: var(--md-selection);
   --md-theme: dark;
 }
-/* manual dark mode */
-:root.dark {
-  --md-bg-1: #242424;
-  --md-bg-2: #2f2f2f;
-  --md-bg-3: #3a3a3a;
-  --md-bg-4: #1a1a1a;
-  --md-divider-light-1: #5454547a;
-  --md-divider-light-2: #aaaaaabd;
-  --md-text-1: #FFFFFFDE;
-  --md-text-2: #EBEBEB99;
-  --md-text-3: #00a0e9;
-  --md-theme: dark;
-}
-/* custom position */
+/* Global variables */
 :root {
   --md-burger-right-1: 0%;
   --md-burger-right-2: 50%;
@@ -131,13 +122,19 @@ h1,h2,h3,h4,a {
 }
 
 ::selection {
-  background: var(--md-bg-4);
-  color: var(--md-text-1);
+  background: var(--md-text-selection);
+  color: inherit;
 }
 
 @media screen and (min-width: 768px) {
   body {
     overflow-y: auto;
     padding-right: 0px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  body {
+    --md-nav-height: 72px;
   }
 }
