@@ -1,32 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import useClient from '../../hooks/useClient'
+import usePlatform from '../../hooks/usePlatform'
 import style from './hero.module.css'
 
-function checkPlatform() {
-  if (typeof navigator !== 'undefined') {
-    return [navigator.userAgent.indexOf('Win')].includes(-1)
-      ? [navigator.userAgent.indexOf('Linux')].includes(-1) ? 'Mac' : 'Linux' : 'Windows'
-  }
-  return 'Platform'
-}
-
-function checkIfMobile() {
-  if (typeof navigator !== 'undefined') {
-    return [navigator.userAgent.indexOf('Mobile')].includes(-1) ? false : true
-  }
-  return false
-}
-
 const Hero = () => {
-  const [platform, setPlatform] = useState('Platform')
   const { mounted } = useClient()
-
-  useEffect(() => {
-    typeof navigator !== 'undefined' &&
-      setPlatform(checkPlatform)
-  }, [])
+  const { isMobile, platform } = usePlatform()
 
   return (
     <article className={style.flexHero}>
@@ -41,9 +22,9 @@ const Hero = () => {
           <Link href='/app'>
             <a className={style.actionLink}>Open in your Browser</a>
           </Link>
-          <Link href={mounted && checkIfMobile() ? '#platforms' : '/'}>
+          <Link href={mounted && isMobile ? '#platforms' : '/'}>
             <a title='pre-release' className={style.actionLink}>
-              {mounted && checkIfMobile() ? 'Download' : `Download for ${platform}`}
+              {mounted && isMobile ? 'Download' : `Download for ${platform}`}
             </a>
           </Link>
         </div>
