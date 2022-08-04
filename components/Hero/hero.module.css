@@ -29,7 +29,7 @@
 }
 
 .textBlue {
-  color: #00a0e9;
+  color: var(--md-cursor);
 }
 
 .tagline {
@@ -69,12 +69,12 @@
 }
 
 .actionLink:first-child {
-  background-color: #00a0e9;
+  background-color: var(--md-cursor);
   color: var(--md-bg-1);
 }
 
 .actionLink:first-child:hover {
-  background-color: #0076ad;
+  background-color: var(--md-malibu);
   transition: background-color 0.2s ease-out;
 }
 
@@ -199,9 +199,7 @@
     height: 80%;
     margin: auto;
     background-image: -webkit-linear-gradient(120rad, #009fe983 25%, #6bd96883);
-    /* border-radius: 50%; */
     filter: blur(100px);
-    /* opacity: 0.5; */
     z-index: -1;
   }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import BarHamburger from './BarHamburger'
 import Appearance from './display/Appearance'
 import NavLinks from './Links/NavLinks'
@@ -27,12 +28,14 @@ const Navigation = () => {
   return (
     <header className={style.header}>
       <div className={style.nav}>
-        <div className={style.title} translate='no'>
-          <figure className={style.logo}>
-            <Image src='/mdpreview-logo.png' alt='Markdown Preview logo' title='Markdow Preview' layout='fill' />
-          </figure>
-          <h1>Markdown Preview</h1>
-        </div>
+        <Link href='/'>
+          <a className={style.title} translate='no'>
+            <figure className={style.logo}>
+              <Image src='/mdpreview-logo.png' alt='Markdown Preview logo' title='Markdow Preview' layout='fill' />
+            </figure>
+            <h1>Markdown Preview</h1>
+          </a>
+        </Link>
         <nav className={style.navbar}>
           <NavLinks viewport='desktop' />
           <Appearance />

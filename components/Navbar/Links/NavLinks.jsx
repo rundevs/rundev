@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 import { hrefs } from '../../../assets/hrefs'
 import { GitHub } from '../../../assets/icons'
 import Languages from '../display/Languages'
