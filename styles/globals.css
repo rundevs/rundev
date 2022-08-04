@@ -11,7 +11,7 @@
   --md-invalid: #ffffff;
   --md-ivory: #abb2bf;
   --md-stone: #7d8799;
-  --md-malibu: #55a1ff;
+  --md-malibu: #2c6fc2;
   --md-sage: #6bd968;
   --md-whiskey: #fecc1b;
   --md-violet: #d83bd2;
@@ -25,9 +25,9 @@
 /* :root light  */
 :root {
   --md-bg-1: var(--md-white);
-  --md-bg-2: #f6f8fa;
+  --md-bg-2: var(--md-white);
   --md-bg-3: #f2f2f2;
-  --md-bg-4: #e5e5e5;
+  --md-bg-4: #f6f8fa;
   --md-bg-blur: #f6f8fa73;
   --md-bg-editor: var(--md-white);
   --md-shadow: #000000a3;
@@ -41,13 +41,13 @@
 }
 /* :root dark */
 [data-theme='dark'] {
-  --md-bg-1: #242424;
-  --md-bg-2: #2f2f2f;
+  --md-bg-1: #1e1e1e;
+  --md-bg-2: #2c2c2c;
   --md-bg-3: #3a3a3a;
-  --md-bg-4: #2B2B2B;
+  --md-bg-4: #111111;
   --md-bg-editor: var(--md-background);
   --md-shadow: #000000;
-  --md-bg-blur: #242424a3;
+  --md-bg-blur: #111111a3;
   --md-divider-light-1: #5454547a;
   --md-divider-light-2: #aaaaaabd;
   --md-text-1: #FFFFFFDE;
@@ -135,6 +135,6 @@ h1,h2,h3,h4,a {
 
 @media screen and (min-width: 960px) {
   body {
-    --md-nav-height: 72px;
+    --md-nav-height: 62px;
   }
 }
