@@ -1,0 +1,6 @@
+.preview {
+  height: 100%;
+  width: 100%;
+  background-color: var(--md-bg-2);
+  position: relative;
+}
