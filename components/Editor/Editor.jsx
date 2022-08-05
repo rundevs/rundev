@@ -15,7 +15,6 @@ const Editor = ({ initialDoc, onChange }) => {
 
   const handleEditorDidMount = (editor, monaco) => {
     editorRef.current = editor
-    console.log(monaco)
     // monaco.editor.defineTheme("onedark", onedark)
     // monaco.editor.setTheme("onedark")
   }
