@@ -10,18 +10,52 @@
   justify-content: flex-end;
 }
 
-.workArea {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - var(--md-nav-height));
+.gridColumn, .gridRow {
+  height: calc(100vh - 48px);
   width: 100%;
-  overflow: hidden;
-  background-color: var(--md-bg-blur);
-  backdrop-filter: blur(10px);
+  display: grid;
+  background-color: var(--md-divider-light-1);
+}
+
+.gridColumn {
+  grid-template-columns: 1fr 5px 1fr;
+}
+
+.gutterColumn {
+  grid-row: 1/-1;
+  cursor: col-resize;
+  grid-column: 2;
+  transition: background-color 0.2s ease-out;
+
+}
+
+.gridRow {
+  grid-template-rows: 1fr 5px 1fr;
+}
+
+.gutterRow {
+  grid-column: 1/-1;
+  cursor: row-resize;
+  grid-row: 2;
+  transition: background-color 0.2s ease-out;
+
+}
+
+.gutterColumn:hover, .gutterRow:hover {
+  background-color: var(--md-malibu);
+  transition: background-color 0.2s ease-out;
+}
+
+.gutterColumn:active, .gutterRow:active {
+  background-color: var(--md-cursor);
+
 }
 
 @media screen and (min-width: 640px ){
-  .workArea {
+  .app {
     flex-direction: row;
+  }
+  .gridColumn, .gridRow {
+    height: 100vh;
   }
 }
