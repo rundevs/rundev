@@ -30,6 +30,7 @@
   --md-bg-4: #f6f8fa;
   --md-bg-blur: #f6f8fa73;
   --md-bg-editor: var(--md-white);
+  --md-bg-preview: var(--md-white);
   --md-shadow: #000000a3;
   --md-divider-light-1: #3c3c3c1f;
   --md-divider-light-2: #42424275;
@@ -46,6 +47,7 @@
   --md-bg-3: #3a3a3a;
   --md-bg-4: #111111;
   --md-bg-editor: var(--md-background);
+  --md-bg-preview: #2c2c2c;
   --md-shadow: #000000;
   --md-bg-blur: #111111a3;
   --md-divider-light-1: #5454547a;
@@ -65,7 +67,7 @@
   --md-burger-rotate-2: 0deg;
   --md-burger-top-1: 0;
   --md-burger-top-2: 45%;
-  --md-nav-height: 57px;
+  --md-nav-height: 48px;
 }
 *, :before,
 :after {

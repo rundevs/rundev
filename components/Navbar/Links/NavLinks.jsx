@@ -15,12 +15,12 @@ const NavLinks = ({ viewport = 'desktop', }) => {
           </Link>
         </li>
       ))}
-      {viewport === 'mobile' && <li style={{ margin: '0.5rem 0' }}><Languages /></li>}
       <li className={style.social}>
         <Link href='https://github.com/Simply-Markdown/mdpreview-web'>
           <a target='_blank'>GitHub<GitHub /></a>
         </Link>
       </li>
+      {viewport === 'mobile' && <li><Languages /></li>}
     </ul>
   )
 }
