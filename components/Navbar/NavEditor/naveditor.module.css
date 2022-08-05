@@ -1,0 +1,68 @@
+.headerEditor {
+  height: 48px;
+  width: 100%;
+  position: relative;
+  background-color: var(--md-bg-preview);
+}
+
+.actionEditor figure {
+  margin: 0;
+  height: 100%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.actionEditor, .settingEditor {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.navEditor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.settingEditor button, .actionEditor button {
+  background-color: transparent;
+  border: none;
+  padding: .8rem;
+  position: relative;
+  width: 48px;
+}
+
+.settingEditor button svg, .actionEditor button svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 640px ) {
+  .headerEditor {
+    height: 100%;
+    width:  48px;
+    position: relative;
+    border-right: 1px solid var(--md-divider-light-1);
+  }
+
+  .navEditor {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .actionEditor, .settingEditor {
+    flex-direction: column;
+    height: max-content;
+    width: 100%;
+  }
+}
