@@ -19,11 +19,11 @@ const App = () => {
     const gridElement = document.getElementById('grid')
     if (query.matches) {
       setMatched(true)
-      gridElement.style.gridTemplateColumns = '1fr 5px 1fr'
+      gridElement.style.gridTemplateColumns = '1fr 8px 1fr'
       gridElement.style.gridTemplateRows = '1fr'
     } else {
       setMatched(false)
-      gridElement.style.gridTemplateRows = '1fr 5px 1fr'
+      gridElement.style.gridTemplateRows = '1fr 8px 1fr'
       gridElement.style.gridTemplateColumns = '1fr'
     }
   }, [])
@@ -56,7 +56,7 @@ const App = () => {
             <Editor initialDoc={doc} onChange={handleChange} />
           </div>
           <div className={matched ? style.gutterColumn : style.gutterRow} {...getGutterProps(matched ? 'column' : 'row', 1)} />
-          <div>
+          <div style={{ width: '100%', overflow: 'auto', position: 'relative' }}>
             <Preview doc={doc} />
           </div>
         </div>
