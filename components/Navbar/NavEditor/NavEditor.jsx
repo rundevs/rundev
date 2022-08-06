@@ -5,6 +5,13 @@ import Portal from '../../Portal'
 import { Files, Setting, User } from '../../../assets/icons'
 import style from './naveditor.module.css'
 
+const themesContent = [
+  { value: 'atom-one-dark', label: 'Atom One Dark' },
+  { value: 'atom-one-light', label: 'Atom One Light' },
+  { value: 'github', label: 'GitHub' },
+  { value: 'github-dark-dimmed', label: 'GitHub Dark' }
+]
+
 const NavEditor = () => {
   const [activeSetting, setActiveSetting] = useState(false)
   const router = useRouter()
@@ -35,11 +42,21 @@ const NavEditor = () => {
           </div>
         </nav>
       </header>
-      {activeSetting && <Portal wrapperId='portal-mdpreview'>
-        <div>
-          <h1>Hello wold</h1>
-        </div>
-      </Portal>}
+      {activeSetting && (
+        <Portal wrapperId='portal-mdpreview'>
+          <div onClick={handleMenu} className={style.menuClose} />
+          <div className={style.menu}>
+            <details>
+              <summary>Theme Color</summary>
+              {themesContent.map((theme, index) => (
+                <button key={index}>{theme.label}</button>
+              ))}
+            </details>
+            <hr />
+            <button>About</button>
+          </div>
+        </Portal>
+      )}
     </Fragment>
   )
 }
