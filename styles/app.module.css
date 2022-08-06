@@ -8,17 +8,17 @@
   position: relative;
   align-items: center;
   justify-content: flex-end;
+  background-color: var(--md-bg-preview);
 }
 
 .gridColumn, .gridRow {
   height: calc(100vh - 48px);
   width: 100%;
   display: grid;
-  background-color: var(--md-divider-light-1);
 }
 
 .gridColumn {
-  grid-template-columns: 1fr 5px 1fr;
+  grid-template-columns: 1fr 8px 1fr;
 }
 
 .gutterColumn {
@@ -30,7 +30,7 @@
 }
 
 .gridRow {
-  grid-template-rows: 1fr 5px 1fr;
+  grid-template-rows: 1fr 8px 1fr;
 }
 
 .gutterRow {
