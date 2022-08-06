@@ -12,6 +12,7 @@
   max-width: 893px;
   min-width: 200px;
   width: 100%;
+  position: relative;
   padding: 1rem;
   color: #adbac7;
 }
@@ -22,7 +23,12 @@
 
 /* Headers */
 
-.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
   color: var(--md-text-1);
   margin-top: 1.5rem;
   line-height: 1.25;
@@ -83,8 +89,12 @@
 
 /* Code */
 
-.markdown code {
+.markdown pre {
+  overflow: hidden;
   border-radius: .4rem;
+}
+
+.markdown code {
   padding: 1rem !important;
 }
 
