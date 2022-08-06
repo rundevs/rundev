@@ -19,6 +19,7 @@ class MyDocument extends Document {
         </Head>
         <body>
           <Main />
+          <div id='portal-mdpreview' />
           <NextScript />
         </body>
       </Html>

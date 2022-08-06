@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { useTheme } from '../context/ThemeProvider'
 
 const useThemes = () => {
@@ -5,11 +6,12 @@ const useThemes = () => {
   /** @description context hook to get the current theme */
   const { theme, setTheme } = useTheme()
 
-  const checkIfIsDark = () => {
+  const checkIfIsDark = useCallback(() => {
     return isThemeDark && theme === 'system'
       ? true
       : theme === 'dark' ? true : false
-  }
+  }, [isThemeDark, theme])
+
   return { theme, setTheme, checkIfIsDark }
 }
 

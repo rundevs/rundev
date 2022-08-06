@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Moon, Sun } from '../../../assets/icons'
-import { useTheme } from '../../../context/ThemeProvider'
+import useThemes from '../../../hooks/useThemes'
 import style from '../header.module.css'
 
 const Appearance = () => {
   const isThemeDark = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useThemes()
+
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
     setMounted(true)
