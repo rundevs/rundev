@@ -3,5 +3,99 @@
   width: 100%;
   background-color: var(--md-bg-preview);
   position: relative;
-  overflow: hidden;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.markdown {
+  margin: 0 auto;
+  max-width: 893px;
+  min-width: 200px;
+  width: 100%;
+  padding: 1rem;
+  color: #adbac7;
+}
+
+.markdown :first-child {
+  margin-top: 0;
+}
+
+/* Headers */
+
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+  color: var(--md-text-1);
+  margin-top: 1.5rem;
+  line-height: 1.25;
+}
+
+.markdown h1, .markdown h2 {
+  border-bottom: 1px solid var(--md-divider-light-1);
+}
+
+.markdown h1 {
+  font-size: 2rem;
+  padding-bottom: .6rem;
+}
+
+.markdown h2 {
+  font-size: 1.5rem;
+  padding-bottom: .5rem;
+}
+
+.markdown h3,.markdown h4, .markdown h5, .markdown h6 {
+  margin-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.markdown h3 {
+  font-size: 1.25rem;
+}
+
+.markdown h4 {
+  font-size: 1rem;
+}
+
+.markdown h5 {
+  font-size: .875rem;
+}
+
+.markdown h6 {
+  font-size: .815rem;
+  color: var(--md-text-2);
+}
+
+/* Lists */
+
+.markdown ul, .markdown ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  color: var(--md-text-1);
+}
+
+/* Divider */
+
+.markdown hr {
+  border: 0;
+  margin: 1.5rem 0;
+  height: .25rem;
+  background-color: var(--md-divider-light-1);
+}
+
+/* Code */
+
+.markdown code {
+  border-radius: .4rem;
+  padding: 1rem !important;
+}
+
+/* Blockquoute */
+
+.markdown blockquote {
+  margin: 0 0 1rem;
+  border-left: 0.25rem solid var(--md-divider-light-1);
+  padding: 0 1rem;
+}
+
+.markdown blockquote p {
+  margin: 0;
 }
