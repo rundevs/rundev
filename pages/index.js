@@ -12,7 +12,6 @@ function Home() {
       document.querySelector('html').style.position = 'relative'
     }
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       subscribe = false
     }
   }, [])
