@@ -20,7 +20,6 @@ const Navigation = () => {
       }
     }
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       cleanup = false
     }
   }, [activeMenu])
