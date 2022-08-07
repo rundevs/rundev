@@ -3,13 +3,11 @@ import { useState, useEffect } from 'react'
 function useClient() {
   const [mounted, setMounted] = useState(false)
 
-  let cleanup = true
-
+  let subscribe = true
   useEffect(() => {
-    cleanup && setMounted(true)
+    subscribe && setMounted(true)
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      cleanup = false
+      subscribe = false
     }
   }, [])
 

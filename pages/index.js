@@ -1,11 +1,21 @@
 import Head from 'next/head'
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import Frame from '../components/FrameMD/Frame'
 import Hero from '../components/Hero/Hero'
 import Layout from '../components/layout/Layout'
 import style from '../styles/index.module.css'
 
 function Home() {
+  let subscribe = true
+  useEffect(() => {
+    if (subscribe) {
+      document.querySelector('html').style.position = 'relative'
+    }
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      subscribe = false
+    }
+  }, [])
 
   return (
     <Fragment>
