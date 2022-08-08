@@ -4,7 +4,7 @@
   </a>
   <h1>Rundevs</h1>
 </div>
-# Rundevs
+
 This is the online markdown editor with live preview
 - 🌱 Simple Editor
 - 🖥 Multiple themes
