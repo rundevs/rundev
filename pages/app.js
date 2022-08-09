@@ -1,21 +1,35 @@
 import React, { Fragment, useCallback, useEffect, useState } from 'react'
-import Split from 'react-split-grid'
 import Head from 'next/head'
-import Editor from '../components/Editor/Editor'
-import NavEditor from '../components/Navbar/NavEditor/NavEditor'
-import Preview from '../components/Preview/Preview'
-import style from '../styles/app.module.css'
+import Split from 'react-split-grid'
+
+import Editor from '../components/Playground/Editor/Editor'
+import Footer from '../components/Playground/footer/Footer'
+import Preview from '../components/Playground/Preview/Preview'
+import NavEditor from '../components/Playground/NavEditor/NavEditor'
+import Explorer from '../components/Playground/explorer/Explorer'
 import useMatchQuery from '../hooks/useMatchQuery'
 import useClient from '../hooks/useClient'
+import style from '../styles/app.module.css'
 
 const App = () => {
   const [doc, setDoc] = useState(INITIAL_STATE)
   const { matched } = useMatchQuery()
   const { mounted } = useClient()
+  const [activeExplorer, setActiveExplorer] = useState(false)
 
   const handleChange = useCallback((/** @type string */ newDoc) => {
     setDoc(newDoc)
   }, [])
+
+  const handleExplorer = () => setActiveExplorer(!activeExplorer)
+
+  useEffect(() => {
+    if (activeExplorer) {
+      document.getElementById('grid-layout').style.gridTemplateColumns = '170px 7px 1fr'
+    } else {
+      document.getElementById('grid-layout').style.gridTemplateColumns = '0px 0px 1fr'
+    }
+  }, [activeExplorer])
 
   let subscribe = true
   useEffect(() => {
@@ -31,67 +45,45 @@ const App = () => {
   return (
     <Fragment>
       <Head>
-        <title>Markdown with preview | Edit, create, and improve your ideas ✨</title>
+        <title>Rundev | Markdown preview | Edit, create, and improve your ideas ✨</title>
       </Head>
       <main className={style.app}>
         <div className={style.appLayout}>
-          <NavEditor />
-          <Split rowMinSize={100} columnMinSize={200} render={({ getGridProps, getGutterProps }) => (
-            <div
-              id='grid'
-              className={matched ? style.gridColumn : style.gridRow}
-              {...getGridProps()}
-            >
-              <div style={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
-                {mounted && <Editor initialDoc={doc} onChange={handleChange} />}
+          <NavEditor handleExplorer={handleExplorer} />
+          <Split
+            columnMinSize={170}
+            columnMaxSize={'90%'}
+            cursor="col-resize"
+            render={({ getGridProps: getGridLayout, getGutterProps: getGutterLayout }) => (
+              <div id='grid-layout' className={style.gridExplorer} {...getGridLayout()}>
+                <div>
+                  {activeExplorer && <Explorer />}
+                </div>
+                <div className={style.gutterColExplorer} {...getGutterLayout('column', 1)} />
+                <Split rowMinSize={100} columnMinSize={200} render={({ getGridProps, getGutterProps }) => (
+                  <div
+                    id='grid'
+                    className={matched ? style.gridColumn : style.gridRow}
+                    {...getGridProps()}
+                  >
+                    <div style={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
+                      {mounted && <Editor initialDoc={doc} onChange={handleChange} />}
+                    </div>
+                    <div
+                      className={matched ? style.gutterColumn : style.gutterRow}
+                      {...getGutterProps(matched ? 'column' : 'row', 1)}
+                    />
+                    <div style={{ width: '100%', height: '100%', overflow: 'auto', position: 'relative', overflow: 'hidden' }}>
+                      <Preview doc={doc} />
+                    </div>
+                  </div>
+                )}
+                />
               </div>
-              <div
-                className={matched ? style.gutterColumn : style.gutterRow}
-                {...getGutterProps(matched ? 'column' : 'row', 1)}
-              />
-              <div style={{ width: '100%', height: '100%', overflow: 'auto', position: 'relative', overflow: 'hidden' }}>
-                <Preview doc={doc} />
-              </div>
-            </div>
-          )}
+            )}
           />
         </div>
-        <footer className={style.footer}>
-          <div>
-            <span
-              data-tooltip='Markdown Preview Application'
-              className={style.tooltip}
-            >
-              Markdown Preview
-            </span>
-          </div>
-          <div>
-            <span
-              data-tooltip='Indentation'
-              className={style.tooltip}
-            >
-              Spaces: 2
-            </span>
-            <span
-              data-tooltip='Encoding'
-              className={style.tooltip}
-            >
-              UTF-8
-            </span>
-            <span
-              data-tooltip='Line Sequence'
-              className={style.tooltip}
-            >
-              LF
-            </span>
-            <span
-              data-tooltip='Language'
-              className={style.tooltip}
-            >
-              Markdown
-            </span>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </Fragment>
   )

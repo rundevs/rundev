@@ -30,9 +30,9 @@ const Navigation = () => {
         <Link href='/'>
           <a className={style.title} translate='no'>
             <figure className={style.logo}>
-              <Image src='/mdpreview-logo.png' alt='Markdown Preview logo' title='Markdow Preview' layout='fill' />
+              <Image src='/rundevs.png' alt='Rundev logo' title='Rundev' layout='fill' />
             </figure>
-            <h1>Markdown Preview</h1>
+            <h1>Rundev</h1>
           </a>
         </Link>
         <nav className={style.navbar}>

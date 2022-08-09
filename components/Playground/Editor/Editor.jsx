@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from 'react'
 import EditorCode from '@monaco-editor/react'
-import useThemes from '../../hooks/useThemes'
+import useThemes from '../../../hooks/useThemes'
 // import onedark from './onedark.json'
 import style from './editor.module.css'
 
@@ -15,13 +15,22 @@ const Editor = ({ initialDoc, onChange }) => {
 
   const handleEditorDidMount = (editor, monaco) => {
     editorRef.current = editor
+    console.log({ monaco, editor })
     // monaco.editor.defineTheme("onedark", onedark)
     // monaco.editor.setTheme("onedark")
   }
 
-  // const handleSave = () => {
-  //   // const content = editorRef.current.getValue()
-  // }
+  const handleSave = () => {
+    // const content = editorRef.current.getValue()
+  }
+
+  const options = {
+    selectOnLineNumbers: true,
+    wordWrap: 'on',
+    scrollBeyondLastLine: false,
+    renderLineHighlight: 'gutter',
+    renderIndentGuides: true,
+  }
 
   return (
     <EditorCode
@@ -31,6 +40,7 @@ const Editor = ({ initialDoc, onChange }) => {
       onChange={handleChange}
       className={style.editor}
       onMount={handleEditorDidMount}
+      options={options}
     />
   )
 }

@@ -1,0 +1,30 @@
+.footer {
+  height: 22px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--md-bg-preview);
+  border-top: 1px solid var(--md-divider-light-1);
+  font-size: 0.87rem;
+  color: var(--md-text-2);
+}
+
+.footer div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.footer span {
+  padding: 0 0.68rem;
+  height: 100%;
+  white-space: nowrap;
+}
+
+.footer span:hover {
+  background-color: var(--md-bg-3);
+  cursor: default;
+}

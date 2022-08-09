@@ -19,8 +19,8 @@ function Home() {
   return (
     <Fragment>
       <Head>
-        <title>Markdown Preview | An editor with real-time preview</title>
-        <meta name="description" content="This application is a editor of markdown with preview." />
+        <title>Rundev | An editor with real-time preview</title>
+        <meta name="description" content="Rundev - Markdown Preview, JavaScript & other Languages in run-time." />
       </Head>
       <Layout>
         <section className={style.heroSection}>

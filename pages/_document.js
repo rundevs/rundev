@@ -10,10 +10,10 @@ class MyDocument extends Document {
       <Html lang="en-US">
         <Head>
           <meta charSet="utf-8" />
-          <meta name='description' content='Markdown Preview is the best and easier editor on the web' />
+          <meta name='description' content='Rundev is the best and easier editor on the web' />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="Markdown Preview" />
-          <meta property="og:description" content="Markdown Preview is the best and easier editor on the web" />
+          <meta property="og:title" content="Rundev" />
+          <meta property="og:description" content="Rundev is the best and easier editor on the web" />
           <meta name="twitter:card" content="summary_large_image" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
