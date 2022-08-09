@@ -32,10 +32,12 @@
   color: var(--md-text-1);
   margin-top: 1.5rem;
   line-height: 1.25;
+  font-weight: 600;
 }
 
 .markdown h1, .markdown h2 {
   border-bottom: 1px solid var(--md-divider-light-1);
+  margin-bottom: 1rem;
 }
 
 .markdown h1 {
@@ -68,6 +70,25 @@
 .markdown h6 {
   font-size: .815rem;
   color: var(--md-text-2);
+}
+
+/* Paragraph */
+
+.markdown p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--md-text-1);
+}
+
+/* Links */
+
+.markdown a {
+  color: var(--md-text-3);
+  text-decoration: none;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
 }
 
 /* Lists */

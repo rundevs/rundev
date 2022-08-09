@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+
 import Portal from '../../Portal'
 import { Files, Setting, User } from '../../../assets/icons'
 import style from './naveditor.module.css'
@@ -12,7 +13,7 @@ const themesContent = [
   { value: 'github-dark-dimmed', label: 'GitHub Dark' }
 ]
 
-const NavEditor = () => {
+const NavEditor = ({ handleExplorer }) => {
   const [activeSetting, setActiveSetting] = useState(false)
   const router = useRouter()
   const handleMenu = () => setActiveSetting(!activeSetting)
@@ -25,10 +26,10 @@ const NavEditor = () => {
             {/* <Link href='/'> */}
             <button onClick={() => router.push('/')} className={style.tooltip} data-tooltip='Home'>
               <div />
-              <Image src='/mdpreview.webp' alt='markdown preview logo' width={25} height={25} priority={true} />
+              <Image src='/rundevs.png' alt='Rundev logo' width={25} height={25} priority={true} />
             </button>
             {/* </Link> */}
-            <button className={style.tooltip} data-tooltip='Explorer'>
+            <button onClick={handleExplorer} className={style.tooltip} data-tooltip='Explorer'>
               <Files />
             </button>
           </div>
