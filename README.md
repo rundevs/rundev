@@ -6,8 +6,10 @@
 </div>
 
 This is the online markdown editor with live preview
-- 🌱 Simple Editor
-- 🖥 Multiple themes
+- 🌱 Simple Editor.
+- 🎨 Multiple themes.
+- 📝 Markdonw Preview.
+- 🚀 JavaScript runtime.
 
 Get maximum readability and ease by documenting your projects, taking your workflow and accomplishing more.
 
