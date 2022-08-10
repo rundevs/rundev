@@ -10,6 +10,7 @@ import Explorer from '../components/Playground/explorer/Explorer'
 import useMatchQuery from '../hooks/useMatchQuery'
 import useClient from '../hooks/useClient'
 import style from '../styles/app.module.css'
+import Profile from 'components/Playground/Profile'
 
 const App = () => {
   const [doc, setDoc] = useState(INITIAL_STATE)
@@ -25,7 +26,7 @@ const App = () => {
 
   useEffect(() => {
     if (activeExplorer) {
-      document.getElementById('grid-layout').style.gridTemplateColumns = '170px 7px 1fr'
+      document.getElementById('grid-layout').style.gridTemplateColumns = '200px 5px 1fr'
     } else {
       document.getElementById('grid-layout').style.gridTemplateColumns = '0px 0px 1fr'
     }
@@ -52,12 +53,11 @@ const App = () => {
           <NavEditor handleExplorer={handleExplorer} />
           <Split
             columnMinSize={170}
-            columnMaxSize={'90%'}
-            cursor="col-resize"
             render={({ getGridProps: getGridLayout, getGutterProps: getGutterLayout }) => (
               <div id='grid-layout' className={style.gridExplorer} {...getGridLayout()}>
-                <div>
+                <div style={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
                   {activeExplorer && <Explorer />}
+                  {/* {activeExplorer && <Profile />} */}
                 </div>
                 <div className={style.gutterColExplorer} {...getGutterLayout('column', 1)} />
                 <Split rowMinSize={100} columnMinSize={200} render={({ getGridProps, getGutterProps }) => (
@@ -66,16 +66,15 @@ const App = () => {
                     className={matched ? style.gridColumn : style.gridRow}
                     {...getGridProps()}
                   >
-                    <div style={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
+                    <section className={style.editorContain}>
                       {mounted && <Editor initialDoc={doc} onChange={handleChange} />}
-                    </div>
+                    </section>
                     <div
-                      className={matched ? style.gutterColumn : style.gutterRow}
-                      {...getGutterProps(matched ? 'column' : 'row', 1)}
+                      className={matched ? style.gutterColumn : style.gutterRow} {...getGutterProps(matched ? 'column' : 'row', 1)}
                     />
-                    <div style={{ width: '100%', height: '100%', overflow: 'auto', position: 'relative', overflow: 'hidden' }}>
+                    <section className={style.previewContain}>
                       <Preview doc={doc} />
-                    </div>
+                    </section>
                   </div>
                 )}
                 />
@@ -85,7 +84,7 @@ const App = () => {
         </div>
         <Footer />
       </main>
-    </Fragment>
+    </Fragment >
   )
 }
 
