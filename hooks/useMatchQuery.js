@@ -7,11 +7,11 @@ const useMatchQuery = () => {
     const gridElement = document.getElementById('grid')
     if (query.matches) {
       setMatched(true)
-      gridElement.style.gridTemplateColumns = '1fr 8px 1fr'
+      gridElement.style.gridTemplateColumns = '1fr 5px 1fr'
       gridElement.style.gridTemplateRows = '1fr'
     } else {
       setMatched(false)
-      gridElement.style.gridTemplateRows = '1fr 8px 1fr'
+      gridElement.style.gridTemplateRows = '1fr 5px 1fr'
       gridElement.style.gridTemplateColumns = '1fr'
     }
   }, [])
