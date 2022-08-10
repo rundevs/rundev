@@ -1,10 +1,13 @@
 import { ThemeProvider } from '../context/ThemeProvider'
+import { SessionProvider } from 'next-auth/react'
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <ThemeProvider forcedTheme={Component.theme || undefined}>
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </ThemeProvider>
   )
 }
