@@ -11,11 +11,10 @@ import style from './editor.module.css'
 const Editor = ({ initialDoc, onChange }) => {
   const handleChange = useCallback((value) => onChange(value), [onChange])
   const editorRef = useRef(null)
-  const { theme, checkIfIsDark } = useThemes()
+  const { checkIfIsDark } = useThemes()
 
   const handleEditorDidMount = (editor, monaco) => {
     editorRef.current = editor
-    console.log({ monaco, editor })
     // monaco.editor.defineTheme("onedark", onedark)
     // monaco.editor.setTheme("onedark")
   }

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 
 import Portal from '../../Portal'
+import { signIn } from 'next-auth/react'
 import { Files, Setting, User } from '../../../assets/icons'
 import style from './naveditor.module.css'
 
@@ -17,6 +18,8 @@ const NavEditor = ({ handleExplorer }) => {
   const [activeSetting, setActiveSetting] = useState(false)
   const router = useRouter()
   const handleMenu = () => setActiveSetting(!activeSetting)
+
+  const handleLoginWithGitHub = () => signIn('github')
 
   return (
     <Fragment>
@@ -34,7 +37,7 @@ const NavEditor = ({ handleExplorer }) => {
             </button>
           </div>
           <div className={style.settingEditor}>
-            <button className={style.tooltip} data-tooltip='Account'>
+            <button onClick={handleLoginWithGitHub} className={style.tooltip} data-tooltip='Account'>
               <User />
             </button>
             <button className={style.tooltip} onClick={handleMenu} data-tooltip='Manage'>
