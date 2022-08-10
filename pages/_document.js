@@ -10,6 +10,8 @@ class MyDocument extends Document {
       <Html lang="en-US">
         <Head>
           <meta charSet="utf-8" />
+          <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1e1e1e" />
+          <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1e1e1e" />
           <meta name='description' content='Rundev is the best and easier editor on the web' />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Rundev" />
