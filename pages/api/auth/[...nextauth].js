@@ -1,12 +1,20 @@
 import NextAuth from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
+import config from 'assets/config'
+
 
 /** @todo add google provider */
 export default NextAuth({
   providers: [
     GithubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      clientId: config.clientGitHub,
+      clientSecret: config.clientGitHubSecret,
     })
-  ]
+  ],
+  secret: config.clientSecret,
+  theme: {
+    colorScheme: 'auto',
+    logo: '/rundevs.png'
+  },
+  debug: false
 })
