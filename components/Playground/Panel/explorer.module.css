@@ -40,7 +40,7 @@
   flex-direction: column;
   user-select: none;
   position: relative;
-  background-color: var(--md-bg-1);
+  background-color: var(--md-bg-4);
 }
 
 .explorer details summary {
@@ -58,7 +58,7 @@
   font-weight: 500;
   line-height: 20px;
   list-style: none;
-  background-color: var(--md-bg-2);
+  background-color: var(--md-bg-preview);
 }
 
 .explorer details summary::before {

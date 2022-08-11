@@ -1,4 +1,4 @@
-.profile {
+.panel {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -41,16 +41,17 @@
   background-color: var(--md-bg-3);
 }
 
-.sectionItem select, .sectionItem input {
-  width: 200px;
-  border: 1px solid var(--md-bg-1);
-  border-radius: 0.2rem;
+.sectionItem select, .input {
+  max-width: 200px;
   padding: 0 0.5rem;
   height: 1.7rem;
+  border: 1px solid var(--md-border);
+  background-color: var(--md-input);
+  border-radius: 0.2rem;
   outline: 0;
 }
 
-.sectionItem select:focus, .sectionItem input:focus {
+.sectionItem select:focus, .input:focus {
   border: 1px solid var(--md-cursor);
 }
 
@@ -68,7 +69,8 @@
   color: var(--md-text-2);
 }
 
-.content {
+
+.content, .labelInput {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,18 +78,66 @@
   padding: 0.2rem 0;
 }
 
+.labelInput span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.labelInput span::before {
+  content: '';
+  background-color: var(--md-input);
+  border-radius: 0.2rem;
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: 0 0.5rem 0 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.labelInput span:active::before {
+  border: 1px solid var(--md-cursor);
+}
+
+.labelInput .inputCheckbox:checked + span::before {
+  content: '\2713';
+}
+
+.inputCheckbox {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0px;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 .btn {
   width: max-content;
-  background-color: transparent;
-  border: 1px solid var(--md-bg-1);
+  background-color: var(--md-btn);
+  color: var(--md-white);
+  border: 1px solid var(--md-divider-light-1);
   height: 1.7rem;
+  line-height: 1.1;
+  font-size: inherit;
   width: 200px;
   cursor: pointer;
   border-radius: 0.2rem;
-  /* padding: 0 2rem; */
   transition: background-color 0.1s ease-out;
 }
 
 .btn:hover {
-  background-color: var(--md-bg-1);
+  background-color: var(--md-btn-hover);
+}
+
+.btn:focus {
+  border: 1px solid var(--md-cursor);
+  outline: 0;
 }

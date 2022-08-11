@@ -93,7 +93,7 @@
     flex-direction: row;
   }
   .gridExplorer {
-    grid-template-columns: 200px 5px 1fr;
+    grid-template-columns: 234px 5px 1fr;
     height: 100%;
   }
   .gridColumn, .gridRow {
