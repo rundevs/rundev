@@ -17,17 +17,20 @@
   --md-violet: #d83bd2;
   --md-darkBackground: #2c313a73;
   --md-background: #282c34;
-  --md-highlightBackground: #2c313a;
-  --md-tooltipBackground: #353a42;
+  --md-highlightBackground: #343a44;
+  --md-tooltipBackground: #3e434d;
   --md-selection: #3E4451;
   --md-cursor: #3992ff;
 }
 /* :root light  */
 :root {
   --md-bg-1: var(--md-white);
-  --md-bg-2: var(--md-white);
-  --md-bg-3: #f2f2f2;
-  --md-bg-4: #f6f8fa;
+  --md-bg-2: var(--md-invalid);
+  --md-bg-3: hsla(0, 0%, 94%);
+  --md-bg-4: hsl(0, 0%, 99%);
+  --md-input: #3c3c3c1f;
+  --md-btn: var(--md-ivory);
+  --md-btn-hover: var(--md-stone);
   --md-bg-blur: #f6f8fa73;
   --md-bg-editor: var(--md-white);
   --md-bg-preview: var(--md-white);
@@ -46,7 +49,10 @@
   --md-bg-1: #1e1e1e;
   --md-bg-2: #2c2c2c;
   --md-bg-3: #3a3a3a;
-  --md-bg-4: #111111;
+  --md-bg-4: #1e1e1e;
+  --md-input: #1e1e1e;
+  --md-btn: var(--md-tooltipBackground);
+  --md-btn-hover: var(--md-highlightBackground);
   --md-bg-editor: var(--md-background);
   --md-bg-preview: #2c2c2c;
   --md-shadow: #000000;
