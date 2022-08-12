@@ -2,7 +2,7 @@
   <a href="https://rundevs.vercel.app/" target="_blank">
     <img width="80px" src="https://user-images.githubusercontent.com/88288135/183527055-94c3c060-f4c6-4d28-a1b7-46b0f3db5d45.png" />
   </a>
-  <h1>Rundevs</h1>
+  <h1>Rundev</h1>
 </div>
 
 This is the online markdown editor with live preview
