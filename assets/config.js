@@ -2,5 +2,5 @@
 export default {
   clientGitHub: process.env.GITHUB_CLIENT_ID || '',
   clientGitHubSecret: process.env.GITHUB_CLIENT_SECRET || '',
-  clientSecret: process.env.SECRET || ''
+  clientSecret: process.env.NEXTAUTH_SECRET || ''
 }
