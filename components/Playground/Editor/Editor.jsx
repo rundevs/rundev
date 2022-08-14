@@ -1,7 +1,8 @@
 import React, { useCallback, useRef } from 'react'
 import EditorCode from '@monaco-editor/react'
 import useThemes from '../../../hooks/useThemes'
-import onedark from './onedark.json'
+import onedark from './themes/onedark.json'
+import onelight from './themes/onelight.json'
 import style from './editor.module.css'
 import useSettings from 'hooks/useSettings'
 
@@ -19,6 +20,7 @@ const Editor = ({ initialDoc, onChange }) => {
   const handleEditorDidMount = (editor, monaco) => {
     editorRef.current = editor
     monaco.editor.defineTheme("atom-one-dark", onedark)
+    monaco.editor.defineTheme("atom-one-light", onelight)
     monaco.editor.setTheme(colorTheme === '' ? themeSystem : colorTheme)
   }
 

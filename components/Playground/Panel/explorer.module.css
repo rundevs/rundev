@@ -24,11 +24,11 @@
   display: flex;
   flex-flow: row;
   align-items: center;
-  background-color: var(--md-bg-1);
+  background-color: var(--md-bg-preview);
 }
 
 .header h2 {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--md-text-2);
   font-weight: 400;
   text-transform: uppercase;
@@ -40,7 +40,7 @@
   flex-direction: column;
   user-select: none;
   position: relative;
-  background-color: var(--md-bg-4);
+  background-color: var(--md-bg-preview);
 }
 
 .explorer details summary {
