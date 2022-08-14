@@ -3,12 +3,11 @@ import highlightjs from 'highlight.js'
 import style from './preview.module.css'
 import { marked } from 'marked'
 import useThemes from '../../../hooks/useThemes'
-// import 'highlight.js/styles/github-dark.css'
-// import 'highlight.js/styles/atom-one-dark.css'
-// import 'highlight.js/styles/base16/onedark.css'
+import useSettings from 'hooks/useSettings'
 
 const Preview = ({ doc }) => {
   const { checkIfIsDark } = useThemes()
+  const { settings } = useSettings()
   const refMarkdownHtml = useRef(null)
 
   marked.setOptions({
@@ -31,10 +30,28 @@ const Preview = ({ doc }) => {
   })
 
   useEffect(() => {
-    checkIfIsDark()
-      ? import('highlight.js/styles/github-dark-dimmed.css')
-      : import('highlight.js/styles/atom-one-light.css')
-  }, [checkIfIsDark])
+    if (settings.colorTheme !== '') {
+      switch (settings.colorTheme) {
+        case 'atom-one-dark':
+          import('highlight.js/styles/atom-one-dark.css')
+          break;
+        case 'atom-one-light':
+          import('highlight.js/styles/atom-one-light.css')
+          break;
+        case 'vs-dark':
+          import('highlight.js/styles/github-dark-dimmed.css')
+          break;
+        case 'vs':
+          import('highlight.js/styles/github.css')
+        default:
+          break;
+      }
+    } else {
+      checkIfIsDark()
+        ? import('highlight.js/styles/github-dark-dimmed.css')
+        : import('highlight.js/styles/atom-one-light.css')
+    }
+  }, [checkIfIsDark, settings.colorTheme])
 
   useEffect(() => {
     if (refMarkdownHtml.current) {
