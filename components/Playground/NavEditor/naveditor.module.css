@@ -193,10 +193,12 @@
 @media screen and (min-width: 640px ) {
   .headerEditor {
     height: 100%;
-    width:  48px;
+    width: max-content;
     position: relative;
     border-right: 1px solid var(--md-divider-light-1);
     border-bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .navEditor {
