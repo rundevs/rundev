@@ -75,7 +75,7 @@
   flex-direction: row;
   align-items: center;
   gap: 0.2rem;
-  padding: 0.2rem 0;
+  padding: 0.5rem 0;
 }
 
 .labelInput span {
@@ -88,7 +88,8 @@
 
 .labelInput span::before {
   content: '';
-  background-color: var(--md-input);
+  border: 1px solid var(--md-divider-light-1);
+  color: var(--md-cursor);
   border-radius: 0.2rem;
   height: 1.2rem;
   width: 1.2rem;
@@ -121,7 +122,7 @@
 
 .btn {
   width: max-content;
-  background-color: var(--md-btn);
+  background-color: var(--md-input);
   color: var(--md-white);
   border: 1px solid var(--md-divider-light-1);
   height: 1.7rem;
