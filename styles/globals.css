@@ -10,7 +10,7 @@
   --md-cyan: #3defe9;
   --md-invalid: #ffffff;
   --md-ivory: #abb2bf;
-  --md-stone: #7d8799;
+  --md-stone: #5353531f;
   --md-malibu: #2c6fc2;
   --md-sage: #6bd968;
   --md-whiskey: #fecc1b;
@@ -28,9 +28,9 @@
   --md-bg-2: var(--md-invalid);
   --md-bg-3: hsla(0, 0%, 94%);
   --md-bg-4: hsl(0, 0%, 99%);
-  --md-input: #3c3c3c1f;
   --md-btn: var(--md-ivory);
-  --md-btn-hover: var(--md-stone);
+  --md-btn-hover: #3c3c3c1f;
+  --md-input: #3c3c3c1f;
   --md-bg-blur: #f6f8fa73;
   --md-bg-editor: var(--md-white);
   --md-bg-preview: var(--md-white);
@@ -43,7 +43,6 @@
   --md-theme: light;
   --md-text-selection: var(--md-divider-light-1);
 }
-
 /* :root dark */
 [data-theme='dark'] {
   --md-bg-1: #1e1e1e;
@@ -52,18 +51,59 @@
   --md-bg-4: #1e1e1e;
   --md-input: #1e1e1e;
   --md-btn: var(--md-tooltipBackground);
-  --md-btn-hover: var(--md-highlightBackground);
+  --md-btn-hover: #303030;
   --md-bg-editor: var(--md-background);
   --md-bg-preview: #2c2c2c;
   --md-shadow: #000000;
   --md-bg-blur: #111111a3;
   --md-divider-light-1: #5454547a;
-  --md-divider-light-2: #aaaaaabd;
+  --md-divider-light-2: #7777777a;
   --md-text-1: #FFFFFFDE;
   --md-text-2: #EBEBEB99;
   --md-text-3: #00a0e9;
   --md-text-selection: var(--md-selection);
   --md-theme: dark;
+}
+
+.atom-one-dark:root {
+  --md-bg-3: #39424e;
+  --md-input: #282c34;
+  --md-bg-preview: #2e353f;
+  --md-input: #282c34;
+  --md-btn-hover: #20232b;
+}
+
+.atom-one-light:root {
+  --md-bg-3: #e5ebf1;
+  --md-input: #adadad;
+  --md-bg-preview: #ffffff;
+  --md-text-1: #213547;
+  --md-text-2: #3C3C3CB3;
+  --md-text-selection: #b8b8b880;
+  --md-btn-hover: #585858;
+  --md-input: var(--md-divider-light-1);
+}
+
+.atom-one-light {
+  color-scheme: light;
+}
+
+.vs-dark:root {
+  --md-bg-3: #3a3a3a;
+  --md-input: #1e1e1e;
+  --md-bg-preview: #2c2c2c;
+  --md-text-1: #FFFFFFDE;
+  --md-text-2: #EBEBEB99;
+  --md-text-selection: #b8b8b880;
+}
+
+.vs:root {
+  --md-bg-3: #e5ebf1;
+  --md-input: #adadad;
+  --md-bg-preview: #ffffff;
+  --md-text-1: #213547;
+  --md-text-2: #3C3C3CB3;
+  --md-text-selection: #0099ff57;
 }
 
 /* Global variables */
@@ -103,7 +143,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: var(--md-bg-1);
+  background: -webkit-linear-gradient(120deg, var(--md-bg-2), var(--md-bg-1) 120%) fixed no-repeat;
   color: var(--md-text-2);
   text-rendering: optimizeLegibility;
   font-synthesis: none;
@@ -144,6 +184,23 @@ h1,h2,h3,h4,a {
 ::selection {
   background: var(--md-text-selection);
   color: inherit;
+}
+/* Custom scroll-bar */
+::-webkit-scrollbar {
+  width: 14px;
+  border-left: 1px solid var(--md-divider-light-1);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-divider-light-1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-divider-light-2);
 }
 
 @media screen and (min-width: 768px) {
