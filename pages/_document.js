@@ -1,7 +1,6 @@
-/* eslint-disable @next/next/inline-script-id */
+/* eslint-disable @next/next/no-sync-scripts */
 import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import Script from 'next/script'
 
 class MyDocument extends Document {
   constructor(props) {
@@ -22,13 +21,13 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta name="google-site-verification" content="googlee7d298e9e66eecd5.html" />
           <meta name="google-site-verification" content="nk6ETUfejHtjHnkXEBzgWhOOX_k-m3iSSVxpoEbVzGM" />
-          <Script
+          <script
             strategy='lazyOnload'
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           />
-          <Script strategy='lazyOnload'>
+          <script strategy='lazyOnload'>
             {`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {page_path: window.location.pathname,});`}
-          </Script>
+          </script>
         </Head>
         <body>
           <Main />
