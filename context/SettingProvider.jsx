@@ -8,7 +8,8 @@ const initialState = {
   fontSize: 14,
   minimap: true,
   language: 'en',
-  storage: false
+  storage: false,
+  programmingLanguage: ''
 }
 
 const manameStorage = (property, obj) => {
@@ -38,7 +39,8 @@ const SettingProvider = ({ children }) => {
    *  fontSize:number,
    *  minimap:boolean,
    *  language:string,
-   *  storage: boolean
+   *  storage: boolean,
+   *  programmingLanguage: string
    * }]}
    */
   const [settings, setSettings] = useState(() => getSettingStorage())
@@ -64,7 +66,7 @@ const SettingProvider = ({ children }) => {
   }, [settings.colorTheme])
 
   /**
-   * @param {'wordWrap' | 'colorTheme' | 'fontSize' | 'minimap' | 'language'}  name
+   * @param {'wordWrap' | 'colorTheme' | 'fontSize' | 'minimap' | 'language' | 'programmingLanguage'}  name
    */
   const updateSettings = (name, value) => {
     const newSettings = { ...settings, [name]: value }
