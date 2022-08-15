@@ -1,0 +1,117 @@
+.workspaces {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.workspacesContain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.workspacesHeader {
+  margin: 1rem 0 1.5rem;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  max-width: 570px;
+}
+
+.workspacesHeader h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  position: relative;
+  line-height: 1.5;
+  color: var(--md-text-1);
+}
+
+.workspacesHeader p {
+  font-size: 1.15rem;
+  font-weight: normal;
+  line-height: 1.7;
+  margin: 0.5rem 0 0 0;
+  color: var(--md-text-2);
+}
+
+.workspacesLangs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.workItem {
+  opacity: 0.5;
+  filter: saturate(0);
+}
+
+.workItemAvailable, .workItem {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: var(--md-input);
+  border-radius: 0.4rem;
+  position: relative;
+  transition: all 0.2s ease-out;
+}
+
+.workItemAvailable:hover {
+  transform: translateY(-0.18rem);
+  box-shadow: 0px 0px 0rem 0.1rem var(--md-cursor);
+  cursor: pointer;
+}
+
+.workspaces figure {
+  margin: 0;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.workspaces figure svg {
+  width: 100%;
+  height: 100%;
+}
+
+.workspaces span {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 500px ){
+  .workspaces {
+    justify-content: center;
+  }
+  .workspacesLangs {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .workItemAvailable, .workItem {
+    max-width: 248px;
+  }
+}
