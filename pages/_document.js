@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-sync-scripts */
 import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
@@ -22,12 +21,21 @@ class MyDocument extends Document {
           <meta name="google-site-verification" content="googlee7d298e9e66eecd5.html" />
           <meta name="google-site-verification" content="nk6ETUfejHtjHnkXEBzgWhOOX_k-m3iSSVxpoEbVzGM" />
           <script
-            strategy='lazyOnload'
+            async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           />
-          <script strategy='lazyOnload'>
-            {`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {page_path: window.location.pathname,});`}
-          </script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
+          />
         </Head>
         <body>
           <Main />

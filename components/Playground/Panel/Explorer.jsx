@@ -1,6 +1,8 @@
 import React from 'react'
 import style from './explorer.module.css'
+
 const languages = { js: '.js', md: '.md' }
+
 const Explorer = () => {
   const { js, md } = languages
   return (
@@ -12,9 +14,6 @@ const Explorer = () => {
         <summary>Markdown</summary>
         <div className={style.file} title='markdown/readme.md' aria-selected={true} role='treeitem'>
           <span className={style.file}>readme{md}</span>
-        </div>
-        <div className={style.file} aria-selected={true}>
-          <span className={style.file}>notes{md}</span>
         </div>
       </details>
       <hr />
