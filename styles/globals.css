@@ -203,6 +203,12 @@ h1,h2,h3,h4,a {
   background: var(--md-divider-light-2);
 }
 
+pre code::-webkit-scrollbar {
+  border-left: 0;
+  width: 0;
+  height: 10px;
+}
+
 @media screen and (min-width: 768px) {
   body {
     overflow-y: auto;
