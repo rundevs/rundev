@@ -1,21 +1,31 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, Suspense, useEffect } from 'react'
 import Head from 'next/head'
 import Split from 'react-split-grid'
+import dynamic from 'next/dynamic'
 
 import useSelectMenu from 'hooks/useSelectMenu'
+import useSettings from 'hooks/useSettings'
 
 import Footer from 'components/Playground/footer/Footer'
 import NavEditor from 'components/Playground/NavEditor/NavEditor'
 import Explorer from 'components/Playground/Panel/Explorer'
 import Profile from 'components/Playground/Panel/Profile'
 import Settings from 'components/Playground/Panel/Settings'
-import Playground from 'components/Playground'
 import style from 'styles/app.module.css'
+import useClient from 'hooks/useClient'
+import Loading from 'components/Loading'
+
+const DynamicPlayground = dynamic(() => import('components/Playground'), { suspense: true })
+const DynamicWorkspaces = dynamic(() => import('components/Workspaces'), { suspense: true })
 
 const arrComponents = { explorer: <Explorer />, user: <Profile />, settings: <Settings /> }
 
+
 const App = () => {
   const { menu, handleSelectMenu } = useSelectMenu()
+  const { settings } = useSettings()
+  const { mounted } = useClient()
+  const { workspaces } = settings
 
   let subscribe = true
   useEffect(() => {
@@ -44,7 +54,9 @@ const App = () => {
                   {Object.entries(menu).filter(value => value[1]).map(value => arrComponents[value[0]])[0]}
                 </div>
                 <div className={style.gutterColExplorer} {...getGutterLayout('column', 1)} />
-                <Playground />
+                <Suspense fallback={<Loading />}>
+                  {mounted && (workspaces ? <DynamicWorkspaces /> : <DynamicPlayground />)}
+                </Suspense>
               </div>
             )}
           />

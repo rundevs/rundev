@@ -1,5 +1,4 @@
 import { INITIAL_STATE } from 'assets/constants'
-import useClient from 'hooks/useClient'
 import useMatchQuery from 'hooks/useMatchQuery'
 import React, { useCallback, useEffect, useState } from 'react'
 import Split from 'react-split-grid'
@@ -12,7 +11,6 @@ import { decode, encode } from 'js-base64'
 const Playground = () => {
   const [doc, setDoc] = useState(INITIAL_STATE)
   const { matched } = useMatchQuery()
-  const { mounted } = useClient()
   const router = useRouter()
   const { asPath } = router
 
@@ -37,7 +35,7 @@ const Playground = () => {
         {...getGridProps()}
       >
         <section className={style.editorContain}>
-          {mounted && <Editor initialDoc={doc} onChange={handleChange} />}
+          <Editor initialDoc={doc} onChange={handleChange} />
         </section>
         <div
           className={matched ? style.gutterColumn : style.gutterRow} {...getGutterProps(matched ? 'column' : 'row', 1)}
@@ -46,8 +44,7 @@ const Playground = () => {
           <Preview doc={doc} />
         </section>
       </div>
-    )}
-    />
+    )} />
   )
 }
 

@@ -20,8 +20,22 @@
 }
 
 .title h2 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   line-height: 1.2;
+}
+
+.rundev {
+  color: var(--md-coral);
+}
+
+.rundev::selection {
+  color: var(--md-coral);
+  -webkit-text-fill-color: var(--md-coral);
+}
+
+@keyframes bg-rotate-color {
+  0% { filter: hue-rotate(0deg)}
+  to { filter: hue-rotate(1turn)}
 }
 
 .textYellow {
@@ -32,12 +46,16 @@
   color: var(--md-cursor);
 }
 
+.green {
+  color: var(--md-sage);
+}
+
 .tagline {
   width: 100%;
 }
 
 .tagline p {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: var(--md-text-2);
   line-height: 1.5;
@@ -94,7 +112,7 @@
   }
 
   .tagline p {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
   }
 
   .title h2 {

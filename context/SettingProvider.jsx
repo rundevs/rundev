@@ -9,7 +9,7 @@ const initialState = {
   minimap: true,
   language: 'en',
   storage: false,
-  programmingLanguage: ''
+  workspaces: true
 }
 
 const manameStorage = (property, obj) => {
@@ -40,7 +40,7 @@ const SettingProvider = ({ children }) => {
    *  minimap:boolean,
    *  language:string,
    *  storage: boolean,
-   *  programmingLanguage: string
+   *  workspaces: boolean
    * }]}
    */
   const [settings, setSettings] = useState(() => getSettingStorage())
@@ -66,7 +66,7 @@ const SettingProvider = ({ children }) => {
   }, [settings.colorTheme])
 
   /**
-   * @param {'wordWrap' | 'colorTheme' | 'fontSize' | 'minimap' | 'language' | 'programmingLanguage'}  name
+   * @param {'wordWrap' | 'colorTheme' | 'fontSize' | 'minimap' | 'language' | 'workspaces'}  name
    */
   const updateSettings = (name, value) => {
     const newSettings = { ...settings, [name]: value }

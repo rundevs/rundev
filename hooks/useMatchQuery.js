@@ -1,22 +1,27 @@
 import { useState, useEffect, useCallback } from 'react'
 
+let isWindows = typeof window !== 'undefined'
+let isDoc = typeof document !== 'undefined'
+
 const useMatchQuery = () => {
   const [matched, setMatched] = useState(false)
 
   const matchQuery = useCallback((query) => {
-    const gridElement = document.getElementById('grid')
-    if (query.matches) {
-      setMatched(true)
-      gridElement.style.gridTemplateColumns = '1fr 5px 1fr'
-      gridElement.style.gridTemplateRows = '1fr'
-    } else {
-      setMatched(false)
-      gridElement.style.gridTemplateRows = '1fr 5px 1fr'
-      gridElement.style.gridTemplateColumns = '1fr'
+    const gridElement = isDoc && document.getElementById('grid')
+    if (gridElement) {
+      if (query.matches) {
+        setMatched(true)
+        gridElement.style.gridTemplateColumns = '1fr 5px 1fr'
+        gridElement.style.gridTemplateRows = '1fr'
+      } else {
+        setMatched(false)
+        gridElement.style.gridTemplateRows = '1fr 5px 1fr'
+        gridElement.style.gridTemplateColumns = '1fr'
+      }
     }
   }, [])
 
-  const mediaQuery = typeof window !== 'undefined' && window.matchMedia('(min-width: 640px)')
+  const mediaQuery = isWindows && window.matchMedia('(min-width: 640px)')
 
   let subscribe = true
   useEffect(() => {
@@ -28,7 +33,7 @@ const useMatchQuery = () => {
 
   useEffect(() => {
     if (subscribe) {
-      typeof window !== 'undefined' && mediaQuery.addEventListener('change', matchQuery)
+      isWindows && mediaQuery.addEventListener('change', matchQuery)
     }
     return () => {
       subscribe = false

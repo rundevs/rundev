@@ -13,10 +13,12 @@ const Hero = () => {
     <article className={style.flexHero}>
       <div className={style.heroMain}>
         <header className={style.title}>
-          <h2>The <span className={style.textYellow}> Markdown language</span> text editor with <span className={style.textBlue}>preview</span></h2>
+          <h2>
+            The <span className={style.rundev}>Rundev</span> is a <span className={style.textBlue}>Playground</span> for your <span className={style.textYellow}> favorite language at runtime.</span>
+          </h2>
         </header>
         <div className={style.tagline}>
-          <p>Get maximum readability and ease by documenting your projects, taking your workflow and accomplishing more.</p>
+          <p>It allows you to edit your code in real-time, and see the result instantly.</p>
         </div>
         <div className={style.action}>
           <Link href='/app'>
