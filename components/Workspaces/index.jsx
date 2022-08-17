@@ -1,5 +1,5 @@
-import useSettings from 'hooks/useSettings'
 import React from 'react'
+import useSettings from 'hooks/useSettings'
 import { SiJavascript, SiMarkdown, SiTypescript, SiPython, SiGoland, SiRust, SiCsharp, SiVisualstudio } from 'react-icons/si'
 import style from './workspaces.module.css'
 
@@ -19,11 +19,11 @@ const Workspaces = () => {
   const handleLanguage = (lang) => updateSettings('programmingLanguage', lang)
   return (
     <section className={style.workspaces}>
-      <div className={style.workspacesContain}>
-        <article className={style.workspacesHeader}>
+      <article className={style.workspacesContain}>
+        <div className={style.workspacesHeader}>
           <h2>Work spaces</h2>
           <p>No more hours saving/extracting/installing locally. Get a more instant development experience. just click and start programming.</p>
-        </article>
+        </div>
         <ul className={style.workspacesLangs}>
           {programmingLanguages.map((item, index) => (
             <li key={index} onClick={() => handleLanguage(item.lang)} className={item.available ? style.workItemAvailable : style.workItem}>
@@ -34,7 +34,7 @@ const Workspaces = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </article>
     </section>
   )
 }
