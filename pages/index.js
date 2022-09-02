@@ -1,83 +1,45 @@
+import React from 'react'
 import Head from 'next/head'
-import { Fragment, useEffect } from 'react'
-import Frame from '../components/FrameMD/Frame'
-import Hero from '../components/Hero/Hero'
-import Layout from '../components/layout/Layout'
-import style from '../styles/index.module.css'
+import { programmingLanguages } from 'assets/workspaces'
 
-function Home() {
-  let subscribe = true
-  useEffect(() => {
-    if (subscribe) {
-      document.querySelector('html').style.position = 'relative'
-    }
-    return () => {
-      subscribe = false
-    }
-  }, [])
+import style from '../styles/workspaces.module.css'
+import WorkspacesItem from 'components/WorkSpaceItem'
 
+const WorkSpaceNotAvailable = ({ color, icon, label }) => (
+  <div className={style.workItem}>
+    <figure style={{ color }}>{icon}</figure>
+    <span>{label}</span>
+  </div>
+)
+
+const App = () => {
   return (
-    <Fragment>
+    <>
       <Head>
-        <title>Rundev | An editor with real-time preview</title>
-        <meta name="description" content="Rundev - Markdown Preview, JavaScript & other Languages in run-time." />
+        <title>
+          Rundev | Markdown preview | Edit, create, and improve your ideas ✨
+        </title>
       </Head>
-      <Layout>
-        <section className={style.heroSection}>
-          <Hero />
-          <article className={style.textGoals}>
-            <div className={style.regularText}>
-              <span>It is....</span>
-              <span>Simple</span>
-              <span>Fast</span>
-              <span>Readable</span>
-              <span>Efficient</span>
-              <span>Plain text</span>
-            </div>
-            <div style={{ height: '10vh' }} />
-            <div className={style.demo}>
-              <div className={style.shadow} />
-              <Frame />
-            </div>
-          </article>
-        </section>
-        <section id='platforms' className={style.platforms}>
-          <h2>Platforms</h2>
-          <p>Latest version: v0.2.0</p>
-          <table className={style.table}>
-            <tbody>
-              <tr>
-                <td>macOS (.app)</td>
-                <td>not avaible</td>
-              </tr>
-              <tr>
-                <td>Windows (.exe)</td>
-                <td>64 bit</td>
-              </tr>
-              <tr>
-                <td>Linux (.deb)</td>
-                <td>64 bit</td>
-              </tr>
-              <tr>
-                <td>More distros (.AppImage)</td>
-                <td>64 bit</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section className={style.content}>
-          <h2>
-            Project Goals
-          </h2>
-          <p>
-            The goal of the project is to create a beautiful and easy writing experience, while maintaining a readable layout at all times, so for simplicity you can consider Markdown as a writing method.
-          </p>
-          <span className={style.quote}>
-            In the future, we anticipate that the community will come up with innovative additions to enhance what could be the simplest, most powerful, and best-tested productivity interface.
-          </span>
-        </section>
-      </Layout>
-    </Fragment>
+      <section className={style.workspaces}>
+        <article className={style.workspacesContain}>
+          <div className={style.workspacesHeader}>
+            <h2>Work spaces</h2>
+            <p>
+              No more hours saving/extracting/installing locally. Get a more
+              instant development experience. just click and start programming.
+            </p>
+          </div>
+          <div className={style.workspacesLangs}>
+            {programmingLanguages.map((item, index) =>
+              item.available
+                ? <WorkspacesItem key={index} />
+                : <WorkSpaceNotAvailable key={index} />
+            )}
+          </div>
+        </article>
+      </section>
+    </>
   )
 }
-export default Home
+
+export default App
