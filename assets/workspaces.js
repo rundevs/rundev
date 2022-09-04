@@ -4,31 +4,73 @@ export const programmingLanguages = [
   {
     lang: 'md',
     label: 'Markdown',
-    icon: <SiMarkdown />,
+    icon: <SiMarkdown size={32} />,
     available: true,
-    color: '#fff'
+    color: {
+      primary: '#fff4', secondary: '#000'
+    }
   },
   {
     lang: 'js',
     label: 'javaScript',
     icon: <SiJavascript />,
     available: true,
-    color: '#efd81d'
+    color: {
+      primary: '#efd81d44', secondary: '#efd81d'
+    }
   },
   {
     lang: 'ts',
     label: 'TypeScript',
     icon: <SiTypescript />,
-    available: false
+    available: false,
+    color: {
+      primary: '#3178c644', secondary: '#3178c6'
+    }
   },
-  { lang: 'py', label: 'Python', icon: <SiPython />, available: false },
-  { lang: 'go', label: 'Go', icon: <SiGoland />, available: false },
-  { lang: 'rust', label: 'Rust', icon: <SiRust />, available: false },
-  { lang: 'csharp', label: 'C++', icon: <SiCsharp />, available: false },
+  {
+    lang: 'py',
+    label: 'Python',
+    icon: <SiPython />,
+    available: false,
+    color: {
+      primary: '#3178c644', secondary: '#3178c6'
+    }
+  },
+  {
+    lang: 'go',
+    label: 'Go',
+    icon: <SiGoland />,
+    available: false,
+    color: {
+      primary: '#3178c644', secondary: '#3178c6'
+    }
+  },
+  {
+    lang: 'rust',
+    label: 'Rust',
+    icon: <SiRust />,
+    available: false,
+    color: {
+      primary: '#3178c644', secondary: '#3178c6'
+    }
+  },
+  {
+    lang: 'csharp',
+    label: 'C Sharp',
+    icon: <SiCsharp />,
+    available: false,
+    color: {
+      primary: '#3178c644', secondary: '#3178c6'
+    }
+  },
   {
     lang: 'vb',
     label: 'Visual Basic',
     icon: <SiVisualstudio />,
-    available: false
+    available: false,
+    color: {
+      primary: '#3178c644', secondary: '#3178c6'
+    }
   }
 ]

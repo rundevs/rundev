@@ -6,6 +6,8 @@ export const Language = () => (
     fill='currentColor'
     strokeWidth={0}
     viewBox='0 0 512 512'
+    width={20}
+    height={20}
     xmlns='http://www.w3.org/2000/svg'
   >
     <path
@@ -52,6 +54,8 @@ export const GitHub = () => (
     stroke='currentColor'
     fill='currentColor'
     strokeWidth={0}
+    width={18}
+    height={18}
     viewBox='0 0 16 16'
     xmlns='http://www.w3.org/2000/svg'
   >
