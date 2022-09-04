@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Moon, Sun } from '../../../assets/icons'
+import { HiMoon, HiSun } from 'react-icons/hi'
 import useThemes from '../../../hooks/useThemes'
 import style from '../header.module.css'
 
@@ -25,7 +25,7 @@ const Appearance = () => {
   const checkIfIsDark = () => {
     return isThemeDark && theme === 'system'
       ? true
-      : theme === 'dark' ? true : false
+      : theme === 'dark'
   }
 
   return (
@@ -35,10 +35,10 @@ const Appearance = () => {
         className={style.toggleTheme}
         role='button'
         aria-label='toggle darks mode'
-        aria-details={mounted && (checkIfIsDark() ? 'dark' : 'light') || 'dark'}
+        aria-details={mounted ? (checkIfIsDark() ? 'dark' : 'light') : 'dark'}
       >
-        <span>
-          {mounted && (checkIfIsDark() ? <Moon /> : <Sun />) || <Moon />}
+        <span className='dark:text-white text-gray-900'>
+          {mounted ? (checkIfIsDark() ? <HiMoon /> : <HiSun />) : <HiMoon />}
         </span>
       </button>
     </div>
