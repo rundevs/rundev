@@ -1,27 +1,16 @@
 import { useState, useEffect, useCallback } from 'react'
 
-let isWindows = typeof window !== 'undefined'
-let isDoc = typeof document !== 'undefined'
+const isWindows = typeof window !== 'undefined'
 
-const useMatchQuery = () => {
+/** @param {string} breakPoint */
+const useMatchQuery = (breakPoint) => {
   const [matched, setMatched] = useState(false)
 
   const matchQuery = useCallback((query) => {
-    const gridElement = isDoc && document.getElementById('grid')
-    if (gridElement) {
-      if (query.matches) {
-        setMatched(true)
-        gridElement.style.gridTemplateColumns = '1fr 5px 1fr'
-        gridElement.style.gridTemplateRows = '1fr'
-      } else {
-        setMatched(false)
-        gridElement.style.gridTemplateRows = '1fr 5px 1fr'
-        gridElement.style.gridTemplateColumns = '1fr'
-      }
-    }
+    query.matches ? setMatched(true) : setMatched(false)
   }, [])
 
-  const mediaQuery = isWindows && window.matchMedia('(min-width: 640px)')
+  const mediaQuery = isWindows && window.matchMedia(breakPoint)
 
   let subscribe = true
   useEffect(() => {
@@ -29,18 +18,17 @@ const useMatchQuery = () => {
     return () => {
       subscribe = false
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    if (subscribe) {
-      isWindows && mediaQuery.addEventListener('change', matchQuery)
-    }
+    if (subscribe) isWindows && mediaQuery.addEventListener('change', matchQuery)
     return () => {
       subscribe = false
+      // mediaQuery.removeEventListener(matchQuery)
     }
   }, [mediaQuery])
 
-  return { matched }
+  return matched
 }
 
 export default useMatchQuery
