@@ -1,22 +1,16 @@
+import React, { Suspense, useEffect } from 'react'
+import dynamic from 'next/dynamic'
+import Split from 'react-split-grid'
+
 import Loading from 'components/Loading'
 import Footer from 'components/Playground/footer/Footer'
 import NavEditor from 'components/Playground/NavEditor/NavEditor'
 import Explorer from 'components/Playground/Panel/Explorer'
 import Profile from 'components/Playground/Panel/Profile'
 import Settings from 'components/Playground/Panel/Settings'
-import useClient from 'hooks/useClient'
 import useSelectMenu from 'hooks/useSelectMenu'
-import useSettings from 'hooks/useSettings'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import React, { Suspense, useEffect } from 'react'
-import Split from 'react-split-grid'
-import style from '../styles/app.module.css'
 
 const DynamicPlayground = dynamic(() => import('components/Playground'), {
-  suspense: true
-})
-const DynamicWorkspaces = dynamic(() => import('components/WorkSpaceItem'), {
   suspense: true
 })
 
@@ -26,11 +20,7 @@ const arrComponents = {
   settings: <Settings />
 }
 const App = () => {
-  const router = useRouter()
   const { menu, handleSelectMenu } = useSelectMenu()
-  const { settings } = useSettings()
-  const { mounted } = useClient()
-  const { workspaces } = settings
 
   let subscribe = true
   useEffect(() => {
@@ -42,9 +32,10 @@ const App = () => {
       subscribe = false
     }
   }, [])
+
   return (
-    <main className={style.app}>
-      <div className={style.appLayout}>
+    <main className='dark:bg-primary bg-white flex flex-col w-full h-full overflow-hidden relative items-center justify-end'>
+      <div className='flex flex-col h-full w-full overflow-hidden relative sm:flex-row'>
         <NavEditor handleSelectMenu={handleSelectMenu} />
         <Split
           columnMinSize={234}
@@ -54,30 +45,20 @@ const App = () => {
           }) => (
             <div
               id='grid-layout'
-              className={style.gridExplorer}
+              className='grid-cols-[0px_5px_1fr] h-full w-full grid overflow-hidden'
               {...getGridLayout()}
             >
-              <div
-                style={{
-                  height: '100%',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}
-              >
+              <div className='h-full relative overflow-hidden'>
                 {Object.entries(menu)
                   .filter((value) => value[1])
                   .map((value) => arrComponents[value[0]])[0]}
               </div>
               <div
-                className={style.gutterColExplorer}
+                className='dark:bg-secondary bg-slate-100 dark:hover:bg-blue-600 dark:active:bg-blue-500 hover:bg-blue-600 active:bg-blue-500 row-[1/-1] cursor-col-resize col-[2] bg-[url("/gutter-col.png")] bg-[50%_center] bg-no-repeat transition-colors duration-200'
                 {...getGutterLayout('column', 1)}
               />
               <Suspense fallback={<Loading />}>
-                {mounted &&
-                  (workspaces
-                    ? <DynamicWorkspaces />
-                    : <DynamicPlayground />
-                  )}
+                <DynamicPlayground />
               </Suspense>
             </div>
           )}
