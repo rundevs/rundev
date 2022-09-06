@@ -39,7 +39,7 @@ const Hero = () => {
       </div>
       <div className='w-full flex flex-col gap-8 relative h-full py-5 md:max-w-3xl lg:w-[43%] lg:pr-6 lg:pt-0 xl:pr-8'>
         <div className='flex flex-row flex-wrap items-center gap-4 select-none md:justify-center lg:justify-end lg:gap-5 xl:justify-center'>
-          <h2 className='dark:text-white text-primary bg-slate-100 dark:bg-secondary w-max px-4 py-2 rounded-xl border border-gray-400 shadow-none transition-all duration-100 relative text-lg  md:text-xl lg:text-2xl lg:py-4 lg:px-8 lg:border-2'>Work spaces:</h2>
+          <h2 className='dark:text-white text-primary bg-slate-100 dark:bg-secondary w-max px-4 py-2 rounded-xl border border-gray-700 shadow-none transition-all duration-100 relative text-lg  md:text-xl lg:text-2xl lg:py-4 lg:px-8 lg:border-2'>Work spaces:</h2>
           {programmingLanguages.map((item, index) =>
             item.available
               ? <WorkspacesItem key={index} color={item.color} icon={item.icon} label={item.label} lang={item.lang} />
