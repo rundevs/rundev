@@ -22,11 +22,11 @@ const Preview = ({ doc }) => {
     sanitize: false,
     smartLists: true,
     smartypants: false,
-    xhtml: false,
+    xhtml: false
   })
 
   const markdown = marked.parse(doc, {
-    breaks: true,
+    breaks: true
   })
 
   useEffect(() => {
@@ -34,17 +34,15 @@ const Preview = ({ doc }) => {
       switch (settings.colorTheme) {
         case 'atom-one-dark':
           import('highlight.js/styles/atom-one-dark.css')
-          break;
+          break
         case 'atom-one-light':
           import('highlight.js/styles/atom-one-light.css')
-          break;
+          break
         case 'vs-dark':
           import('highlight.js/styles/github-dark-dimmed.css')
-          break;
+          break
         case 'vs':
           import('highlight.js/styles/github.css')
-        default:
-          break;
       }
     } else {
       checkIfIsDark()
