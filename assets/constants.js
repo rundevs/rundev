@@ -1,7 +1,8 @@
 export const KEY_THEME = 'theme'
 export const KEY_LANGUAGE = 'language'
 
-export const INITIAL_STATE = `# Welcome to Rundev 🚀
+export const INITIAL_STATE = `<!-- Edit here -->
+# Welcome to Rundev 🚀
 ## Basic Syntax of Markdown
 ### With Preview ✨
 

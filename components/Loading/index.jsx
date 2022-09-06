@@ -6,7 +6,7 @@ const Loading = () => {
   return (
     <div className={style.loading}>
       <figure>
-        <Image src='/rundevs.png' alt='rundevs animation pulse' height={80} width={80} priority={true} quality={100} />
+        <Image src='/rundevs.png' alt='rundevs animation pulse' height={80} width={80} priority quality={100} />
       </figure>
     </div>
   )

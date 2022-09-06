@@ -19,20 +19,16 @@ const Editor = ({ initialDoc, onChange }) => {
 
   const handleEditorDidMount = (editor, monaco) => {
     editorRef.current = editor
-    monaco.editor.defineTheme("atom-one-dark", onedark)
-    monaco.editor.defineTheme("atom-one-light", onelight)
+    monaco.editor.defineTheme('atom-one-dark', onedark)
+    monaco.editor.defineTheme('atom-one-light', onelight)
     monaco.editor.setTheme(colorTheme === '' ? themeSystem : colorTheme)
-  }
-
-  const handleSave = () => {
-    // const content = editorRef.current.getValue()
   }
 
   const themeSystem = checkIfIsDark() ? 'vs-dark' : 'vs'
 
   const options = {
     selectOnLineNumbers: true,
-    wordWrap: wordWrap,
+    wordWrap,
     minimap: {
       enabled: minimap
     },
@@ -41,7 +37,7 @@ const Editor = ({ initialDoc, onChange }) => {
     renderIndentGuides: true,
     fontSize: `${fontSize}px`,
     theme: colorTheme === '' ? themeSystem : colorTheme,
-    colorDecorators: true,
+    colorDecorators: true
   }
 
   return (

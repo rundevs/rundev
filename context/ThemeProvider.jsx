@@ -1,9 +1,9 @@
-import { createContext, Fragment, useContext, useState, useCallback, useEffect, memo } from "react"
-import { getTheme, disableAnimation, getSystemTheme } from './helpers';
+import { createContext, Fragment, useContext, useState, useCallback, useEffect, memo } from 'react'
+import { getTheme, disableAnimation, getSystemTheme } from './helpers'
 
 const colorSchemes = ['light', 'dark']
 const MEDIA = '(prefers-color-scheme: dark)'
-const ThemeContext = createContext(undefined);
+const ThemeContext = createContext(undefined)
 const defaultContext = { setTheme: () => { }, themes: [] }
 
 export const useTheme = () => useContext(ThemeContext) ?? defaultContext
@@ -11,7 +11,7 @@ export const useTheme = () => useContext(ThemeContext) ?? defaultContext
 export const ThemeProvider = props => {
   const context = useContext(ThemeContext)
   // Ignore nested context providers, just passthrough children
-  if (context) return <Fragment>{props.children}</Fragment>
+  if (context) return <>{props.children}</>
   return <Theme {...props} />
 }
 
@@ -88,7 +88,7 @@ const Theme = ({
       applyTheme('system')
     }
   },
-    [theme, forcedTheme]
+  [theme, forcedTheme]
   )
 
   // Always listen to System preference
@@ -129,8 +129,8 @@ const Theme = ({
         theme,
         setTheme,
         forcedTheme,
-        resolvedTheme: theme === "system" ? resolvedTheme : theme,
-        themes: enableSystem ? [...themes, "system"] : themes,
+        resolvedTheme: theme === 'system' ? resolvedTheme : theme,
+        themes: enableSystem ? [...themes, 'system'] : themes,
         systemTheme: (enableSystem ? resolvedTheme : undefined)
       }}
     >
@@ -147,12 +147,12 @@ const Theme = ({
           value,
           children,
           attrs,
-          nonce,
+          nonce
         }}
       />
       {children}
     </ThemeContext.Provider>
-  );
+  )
 }
 
 // eslint-disable-next-line react/display-name
@@ -189,13 +189,13 @@ const ThemeScript = memo(({
     if (fallback) {
       return `if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'${defaultTheme}'`
     } else {
-      return `if(e==='light'||e==='dark')d.style.colorScheme=e`
+      return 'if(e===\'light\'||e===\'dark\')d.style.colorScheme=e'
     }
   })()
 
   const updateDOM = (name, literal = false, setColorScheme = true) => {
     const resolvedName = value ? value[name] : name
-    const val = literal ? name + `|| ''` : `'${resolvedName}'`
+    const val = literal ? name + '|| \'\'' : `'${resolvedName}'`
     let text = ''
 
     // MUCH faster to set colorScheme alongside HTML attribute/class
@@ -209,7 +209,7 @@ const ThemeScript = memo(({
       if (literal || resolvedName) {
         text += `c.add(${val})`
       } else {
-        text += `null`
+        text += 'null'
       }
     } else {
       if (resolvedName) {
@@ -229,12 +229,12 @@ const ThemeScript = memo(({
       return `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${defaultSystem})){var t='${MEDIA}',m=window.matchMedia(t);if(m.media!==t||m.matches){${updateDOM(
         'dark'
       )}}else{${updateDOM('light')}}}else if(e){${value ? `var x=${JSON.stringify(value)};` : ''
-        }${updateDOM(value ? `x[e]` : 'e', true)}}${!defaultSystem ? `else{` + updateDOM(defaultTheme, false, false) + '}' : ''
+        }${updateDOM(value ? 'x[e]' : 'e', true)}}${!defaultSystem ? 'else{' + updateDOM(defaultTheme, false, false) + '}' : ''
         }${fallbackColorScheme}}catch(e){}}()`
     }
 
     return `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if(e){${value ? `var x=${JSON.stringify(value)};` : ''
-      }${updateDOM(value ? `x[e]` : 'e', true)}}else{${updateDOM(
+      }${updateDOM(value ? 'x[e]' : 'e', true)}}else{${updateDOM(
         defaultTheme,
         false,
         false
@@ -243,6 +243,6 @@ const ThemeScript = memo(({
 
   return <script nonce={nonce} dangerouslySetInnerHTML={{ __html: scriptSrc }} />
 },
-  // Never re-render this component
-  () => true
+// Never re-render this component to server side rendering
+() => true
 )

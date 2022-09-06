@@ -4,9 +4,9 @@ import '../styles/globals.css'
 import { Fragment } from 'react'
 import SettingProvider from 'context/SettingProvider'
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+function MyApp ({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <Fragment>
+    <>
       <ThemeProvider forcedTheme={Component.theme || undefined}>
         <SessionProvider session={session}>
           <SettingProvider>
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </SettingProvider>
         </SessionProvider>
       </ThemeProvider>
-    </Fragment>
+    </>
   )
 }
 

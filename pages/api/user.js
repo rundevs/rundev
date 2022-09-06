@@ -1,4 +1,4 @@
-import { dbConnect } from "db/utils/database"
+import { dbConnect } from 'db/utils/database'
 import User from 'db/models/User'
 
 dbConnect()
@@ -6,7 +6,7 @@ dbConnect()
  * @param {NextApiRequest} req
  * @param {NextApiResponse} res
  */
-export default async function handler(req, res) {
+export default async function handler (req, res) {
   const { method } = req
 
   switch (method) {
@@ -16,6 +16,7 @@ export default async function handler(req, res) {
         return res.status(200).json(user)
       } catch (error) {
         console.error(error)
+        return
       }
     case 'POST':
       return res.status(200).json('posting files')

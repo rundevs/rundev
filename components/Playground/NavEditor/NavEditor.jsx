@@ -24,13 +24,13 @@ const NavEditor = ({ handleSelectMenu }) => {
   const toggleWorkSpaces = () => updateSettings('workspaces', !settings.workspaces)
 
   return (
-    <Fragment>
+    <>
       <header className={style.headerEditor}>
         <nav className={style.navEditor}>
           <div className={style.actionEditor}>
             <button onClick={() => router.push('/')} className={style.tooltip} data-tooltip='Home' title='Home'>
               <div />
-              <Image src='/rundevs.png' alt='Rundev logo' width={25} height={25} priority={true} />
+              <Image src='/rundevs.png' alt='Rundev logo' width={25} height={25} priority />
             </button>
             <button onClick={selectExplorer} className={style.tooltip} data-tooltip='Explorer' title='Explorer'>
               <Files />
@@ -49,7 +49,7 @@ const NavEditor = ({ handleSelectMenu }) => {
           </div>
         </nav>
       </header>
-    </Fragment>
+    </>
   )
 }
 

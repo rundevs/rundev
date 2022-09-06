@@ -20,8 +20,8 @@ const Settings = () => {
           <span>Controls how lines should wrap.</span>
         </div>
         <select value={wordWrap} onChange={handleWordWrap}>
-          <option value="on" key="on">on</option>
-          <option value="of" key="of">off</option>
+          <option value='on' key='on'>on</option>
+          <option value='of' key='of'>off</option>
         </select>
       </article>
 
@@ -33,11 +33,11 @@ const Settings = () => {
           <span>Specifies the color theme used in the workbench.</span>
         </div>
         <select value={colorTheme} onChange={handleTheme}>
-          <option value="" disabled={true} hidden={true}>System</option>
-          <option value="atom-one-dark">Atom One Dark</option>
-          <option value="atom-one-light">Atom One Light</option>
-          <option value="vs-dark">GitHub Dark</option>
-          <option value="vs">GitHub</option>
+          <option value='' disabled hidden>System</option>
+          <option value='atom-one-dark'>Atom One Dark</option>
+          <option value='atom-one-light'>Atom One Light</option>
+          <option value='vs-dark'>GitHub Dark</option>
+          <option value='vs'>GitHub</option>
         </select>
       </article>
 
@@ -57,7 +57,7 @@ const Settings = () => {
         </header>
         <div className={style.content}>
           <label className={style.labelInput}>
-            <input checked={minimap} onChange={handleMinimap} type="checkbox" className={style.inputCheckbox} />
+            <input checked={minimap} onChange={handleMinimap} type='checkbox' className={style.inputCheckbox} />
             <span>Controls whether the minimap is shown.
             </span>
           </label>

@@ -1,68 +1,8 @@
-.header {
-  width: 100%;
-  margin: 0 auto;
-  border-bottom: 1px solid var(--md-divider-light-1);
-  height: var(--md-nav-height);
-  z-index: 10;
-  position: relative;
-  flex-shrink: 0;
-}
-
-.nav {
-  width: 100%;
-  height: 100%;
-  padding: 0 0.5rem 0 1.5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1rem;
-  max-width: 1365px;
-  margin: 0 auto;
-}
-/* Logo and title */
-.title {
-  align-items: center;
-  gap: 0.5rem;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  width: max-content;
-}
-
-.title h1 {
-  font-weight: 500;
-  color: var(--md-text-1);
-  white-space: nowrap;
-}
-
-.title:hover, .burgerBtn[aria-expanded="true"]:hover {
+.burgerBtn[aria-expanded="true"]:hover {
   transform: scale(0.998);
   transition: all 0.2s ease-out;
   opacity: 0.8;
   cursor: pointer;
-}
-
-.logo {
-  padding: 0;
-  margin: 0;
-  width: 34px;
-  height: 34px;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-/* content of navbar */
-.navbar, .content, .title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.navbar {
-  height: 100%;
-  gap: 1rem;
 }
 
 .burgerBtn {
@@ -90,20 +30,22 @@
   position: absolute;
   height: 2px;
   width: 18px;
-  background-color: var(--md-text-1);
   transition: all .2s ease-out;
 }
+
 .burger :first-child {
   top: var(--md-burger-top-1);
   right: 0;
   transform: translateX(var(--md-burger-right-1)) rotate(var(--md-burger-rotate-1));
   opacity: 0.8;
 }
+
 .burger :nth-child(2) {
   top: var(--md-burger-top-2);
   right: 0;
   transform: translateX(var(--md-burger-right-2)) rotate(var(--md-burger-rotate-2));
 }
+
 .burger :nth-child(3) {
   bottom: var(--md-burger-top-1);
   right: 0;
@@ -150,31 +92,19 @@
   }
 }
 
-.language {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color : var(--md-text-1);
-  padding: 1rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.language svg {
-  width: 20px;
-  height: 20px;
-}
-
 .appearance {
   color: var(--md-text-2);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .appearance span {
   margin: 0;
   padding-bottom: 3px;
   text-align: center;
 }
+
 .toggleTheme {
   border: 2px solid var(--md-divider-light-1);
   border-radius: 1rem;
@@ -188,6 +118,7 @@
   overflow: hidden;
   transition: border-color 0.2s ease-out;
 }
+
 .toggleTheme:hover {
   border-color: var(--md-divider-light-2);
 }
@@ -206,18 +137,22 @@
   transition: transform 0.5s ease-out;
   box-shadow: 1px 1px 2px 0px rgba(26, 26, 26, 0.103);
 }
+
 .toggleTheme[aria-details='dark'] span {
   background-color: var(--md-cursor);
   transform: translateX(100%);
   padding-left: 1px;
 }
+
 .toggleTheme.toggleTheme[aria-details='dark'], .toggleTheme {
   background-color: var(--md-bg-3);
 }
+
 .toggleTheme[aria-details='light'] span {
   background-color: var(--md-white);
   transform: translateX(0%);
 }
+
 .toggleTheme.toggleTheme[aria-details='light'], .toggleTheme {
   background-color: inherit;
 }
@@ -227,67 +162,8 @@
   width: 12px;
 }
 
-.hoverBtn {
-  display: none;
-}
-
 @media screen and (min-width: 768px) {
-  .nav {
-    padding: 0 2rem;
-  }
   .burgerBtn {
     display: none;
-  }
-  .hoverBtn {
-    display: flex;
-    color: var(--md-text-1);
-  }
-  .hoverBtn {
-    position: relative;
-  }
-  .hoverMenu {
-    position: absolute;
-    top: 150%;
-    min-width: 200px;
-    right: 0;
-    border: 1px solid var(--md-divider-light-1);
-    border-radius: 1rem;
-    background-color: var(--md-bg-1);
-    overflow: hidden;
-  }
-  .appearanceDesktop {
-    padding: 1rem 0;
-    border-top: 1px solid var(--md-divider-light-1);
-    border-bottom: 1px solid var(--md-divider-light-1);
-  }
-  .menuLang {
-    padding: 0 1rem;
-  }
-  .menuSocial {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 1rem;
-    color: var(--md-text-1);
-  }
-  .menuSocial a {
-    display: flex;
-  }
-  .menuSocial svg {
-    width: 24px;
-    height: 24px;
-  }
-  .menuSocial a:hover {
-    color: var(--md-text-2);
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .header {
-    position: fixed;
-    top: 0;
-    left: auto;
-    background-color: var(--md-bg-blur);
-    backdrop-filter: blur(8px);
   }
 }

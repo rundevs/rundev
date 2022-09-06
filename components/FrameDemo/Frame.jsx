@@ -51,9 +51,9 @@ const Frame = () => (
             <span className={style.variable}>console</span>
             <span className={style.text}>.</span>
             <span className={style.property}>log</span>
-            <span className={style.text}>{'('}</span>
-            <span className={style.string}>{"'"}hello from Markdown{"'"}</span>
-            <span className={style.text}>{')'}</span>
+            <span className={style.text}>(</span>
+            <span className={style.string}>'hello from Markdown'</span>
+            <span className={style.text}>)</span>
           </div>
         </pre>
         <pre className={style.line}>
@@ -86,9 +86,9 @@ const Frame = () => (
             <span className={style.variable}>console</span>
             <span className={style.text}>.</span>
             <span className={style.property}>log</span>
-            <span className={style.text}>{'('}</span>
-            <span className={style.string}>{"'"}hello from Markdown{"'"}</span>
-            <span className={style.text}>{')'}</span>
+            <span className={style.text}>(</span>
+            <span className={style.string}>'hello from Markdown'</span>
+            <span className={style.text}>)</span>
           </div>
         </pre>
         <div className={style.quote}>
