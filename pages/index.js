@@ -60,10 +60,10 @@ const Home = () => {
             </div>
           </article>
         </section>
-        <section id='platforms' className='max-w-3xl w-full mx-auto flex flex-col items-center py-24'>
+        <section id='platforms' className='max-w-3xl w-full mx-auto flex flex-col items-center py-24 px-4'>
           <h2 className='text-2xl md:text-3xl font-medium'>Platforms</h2>
           <p className='text-xl md:text-2xl py-4'>Latest version: v0.2.0</p>
-          <table className='border border-collapse w-1/2 dark:text-white text-primary text-lg'>
+          <table className='border border-collapse w-full md:w-1/2 dark:text-white text-primary text-lg'>
             <tbody>
               <tr className='border [&>td]:border [&>td]:pl-4 [&>td]:py-2'>
                 <td>macOS (.app)</td>
@@ -84,7 +84,7 @@ const Home = () => {
             </tbody>
           </table>
         </section>
-        <section className='pb-24 max-w-3xl mx-auto dark:text-gray-300 text-center text-2xl flex flex-col gap-4'>
+        <section className='pb-24 max-w-3xl mx-auto dark:text-gray-300 text-center text-2xl flex flex-col gap-4 px-4'>
           <h2 className='text-2xl md:text-3xl font-medium dark:text-white'>
             Project Goals
           </h2>
