@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import Split from 'react-split-grid'
 
 import Loading from 'components/Loading'
-import Footer from 'components/Playground/footer/Footer'
+import Footer from 'components/Playground/footer'
 import NavEditor from 'components/Playground/NavEditor/NavEditor'
 import Explorer from 'components/Playground/Panel/Explorer'
 import Profile from 'components/Playground/Panel/Profile'
