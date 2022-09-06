@@ -1,4 +1,4 @@
-import { dbConnect } from "db/utils/database"
+import { dbConnect } from 'db/utils/database'
 import User from 'db/models/User'
 
 dbConnect()
@@ -6,7 +6,7 @@ dbConnect()
  * @param {NextApiRequest} req
  * @param {NextApiResponse} res
  */
-export default async function handler(req, res) {
+export default async function handler (req, res) {
   const { method } = req
 
   switch (method) {
