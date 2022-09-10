@@ -72,7 +72,7 @@ const Theme = ({
       setThemeState(theme)
       // Save to storage
       try {
-        localStorage.setItem(storageKey, theme)
+        window.localStorage.setItem(storageKey, theme)
       } catch (e) {
         // Unsupported
       }

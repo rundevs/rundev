@@ -16,14 +16,14 @@ const manameStorage = (property, obj) => {
   const isDocument = typeof document !== 'undefined'
   if (isDocument) {
     if (property === 'get') {
-      return localStorage.getItem(SETTING_KEY)
+      return window.localStorage.getItem(SETTING_KEY)
     } else {
-      localStorage.setItem(SETTING_KEY, JSON.stringify(obj))
+      window.localStorage.setItem(SETTING_KEY, JSON.stringify(obj))
     }
   }
 }
 
-function getSettingStorage() {
+function getSettingStorage () {
   const storage = manameStorage('get')
   const currentState = storage ? JSON.parse(storage) : initialState
   return { ...currentState, storage: Boolean(storage) }
