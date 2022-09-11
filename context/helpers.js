@@ -8,7 +8,7 @@ export const getTheme = (key, fallback) => {
   if (isServer) return undefined
   let theme
   try {
-    theme = localStorage.getItem(key) || undefined
+    theme = window.localStorage.getItem(key) || undefined
   } catch (e) {
     // Unsupported
   }
@@ -19,7 +19,7 @@ export const disableAnimation = () => {
   const css = document.createElement('style')
   css.appendChild(
     document.createTextNode(
-      `*{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}`
+      '*{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}'
     )
   )
   document.head.appendChild(css)
@@ -41,4 +41,3 @@ export const getSystemTheme = (e) => {
   const systemTheme = isDark ? 'dark' : 'light'
   return systemTheme
 }
-
