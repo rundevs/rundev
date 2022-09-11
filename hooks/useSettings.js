@@ -12,7 +12,7 @@ import { useContext } from 'react'
  *   }, updateSettings: () => void
  * }}
  */
-export default function useSettings() {
+export default function useSettings () {
   const { settings, updateSettings } = useContext(SettingContext)
 
   return { settings, updateSettings }
