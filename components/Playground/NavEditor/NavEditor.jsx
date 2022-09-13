@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { signIn, useSession } from 'next-auth/react'
@@ -38,7 +38,7 @@ const NavEditor = ({ handleSelectMenu }) => {
               <BsGrid />
             </button>
           </div>
-          <div className='flex flex-row h-full [&>button]:bg-transparent [&>button]:border-none [&>button]:p-3 [&>button]:relative [&>button]:text-primary [&>button]:dark:text-slate-300 sm:flex-col sm:h-full sm:w-full sm:justify-end'>
+          <div className='flex flex-row h-full justify-end [&>button]:bg-transparent [&>button]:border-none [&>button]:p-3 [&>button]:relative [&>button]:text-primary [&>button]:dark:text-slate-300 sm:flex-col sm:h-full sm:w-full ss[&>button>svg]:w-full [&>button>svg]:h-full'>
             <button onClick={handleUser} className='hover:cursor-pointer hover:text-gray-700 dark:hover:opacity-75 transition-all duration-200' data-tooltip='Account' title='Account'>
               <User />
             </button>
