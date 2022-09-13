@@ -2,8 +2,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className='h-[23px] flex flex-row justify-between items-center w-full bg-secondary border-t border-gray-700 text-sm text-sl dark:text-gray-300 text-primary [&>div]:flex [&>div]:h-full [&>div]:items-center [&>div]:overflow-hidden [&>div>span]:px-3 [&>div>span]:h-full [&>div>span]:whitespace-nowrap'>
-      <div className='[&>span]:dark:hover:bg-primary [&>span]:hover:bg-slate-100'>
+    <footer className='bg-slate-50 dark:bg-secondary dark:text-gray-300 text-primary h-[23px] flex flex-row justify-between items-center w-full border-t border-gray-700 text-sm text-sl [&>div]:flex [&>div]:h-full [&>div]:items-center [&>div]:overflow-hidden [&>div>span]:px-3 [&>div>span]:h-full [&>div>span]:whitespace-nowrap'>
+      <div className='[&>span]:dark:hover:bg-primary [&>span]:hover:bg-slate-200'>
         <span
           data-tooltip='Rundev Application © 2022'
           title='Rundev Application'
