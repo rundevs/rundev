@@ -60,7 +60,7 @@ const Preview = ({ doc }) => {
   }, [markdown])
 
   return (
-    <div className={style.preview}>
+    <div className='h-full w-full dark:bg-secondary bg-slate-50 relative box-border overflow-auto dark:text-white text-primary'>
       <div ref={refMarkdownHtml} className={style.markdown} />
     </div>
   )
