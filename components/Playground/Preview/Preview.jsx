@@ -4,9 +4,11 @@ import style from './preview.module.css'
 import { marked } from 'marked'
 import useThemes from '../../../hooks/useThemes'
 import useSettings from 'hooks/useSettings'
+import useDoc from 'hooks/useDoc'
 
-const Preview = ({ doc }) => {
+const Preview = () => {
   const { checkIfIsDark } = useThemes()
+  const { doc } = useDoc()
   const { settings } = useSettings()
   const refMarkdownHtml = useRef(null)
 

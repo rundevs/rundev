@@ -29,21 +29,12 @@ const Home = () => {
       <Layout>
         <section className='p-4 w-full h-full lg:pt-28 xl:pt-32'>
           <Hero />
-          <FrameDemo codeString={demoCode1} />
+          <FrameDemo codeString={demoCode1} language='javascript' />
           <article className='py-14 max-w-3xl mx-auto dark:text-gray-300 text-primary text-xl flex flex-col gap-4 sm:text-2xl md:text-justify'>
             <p>🚀 Start coding within seconds.</p>
             <p>👨🏻‍💻 The easiest way to learn javascript, the fastest JavaScript coding experience ever made.</p>
             <p>✨ Type code faster and easier with smart code autocomplete. It helps avoid looking for documentation every time and it adds confidence in your coding abilities.</p>
           </article>
-          {/* <div className='flex flex-col items-center justify-center w-full relative select-none'>
-            <figure className='shadow-2xl w-72 aspect-square relative'>
-              <Image src='/mdpreview-linux.png' alt='markdown preview logo' layout='fill' priority quality={100} objectFit='contain' />
-            </figure>
-            <div className='absolute' />
-            <figure className='shadow-2xl w-full aspect-video relative'>
-              <Image src='/mdpreview-window.png' alt='markdown preview logo' layout='fill' priority quality={100} objectFit='contain' />
-            </figure>
-          </div> */}
           <article className={style.textGoals}>
             <div className={style.regularText}>
               <span>It is....</span>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function useClient() {
+const useClient = () => {
   const [mounted, setMounted] = useState(false)
 
   let subscribe = true

@@ -1,7 +1,7 @@
 export const KEY_THEME = 'theme'
 export const KEY_LANGUAGE = 'language'
 
-export const INITIAL_STATE = `<!-- Edit here -->
+export const INITIAL_DOC_MD = `<!-- Edit here -->
 # Welcome to Rundev 🚀
 ## Basic Syntax of Markdown
 ### With Preview ✨
@@ -24,3 +24,4 @@ console.log(sayHello('Bob'))
 - [ ] Task item todo
 - [x] Task list item checked
 `
+export const INITIAL_DOC_JS = 'console.log("Hello World")'
