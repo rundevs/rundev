@@ -5,17 +5,21 @@ import onedark from './themes/onedark.json'
 import onelight from './themes/onelight.json'
 import style from './editor.module.css'
 import useSettings from 'hooks/useSettings'
+import Loading from 'components/Loading'
 
 /**
- * @param {{initialDoc: string, onChange: (newDoc: string) => void}}
+ * @param {{initialDoc: string, onChange: (newDoc: string) => void, language: string}}
  * @returns {JSX.Element}
  */
-const Editor = ({ initialDoc, onChange }) => {
+const Editor = ({ initialDoc, onChange, language }) => {
   const { settings } = useSettings()
   const { wordWrap, minimap, colorTheme, fontSize } = settings
   const editorRef = useRef(null)
   const { checkIfIsDark } = useThemes()
+
   const handleChange = useCallback((value) => onChange(value), [onChange])
+
+  const themeSystem = checkIfIsDark() ? 'vs-dark' : 'vs'
 
   const handleEditorDidMount = (editor, monaco) => {
     editorRef.current = editor
@@ -23,8 +27,6 @@ const Editor = ({ initialDoc, onChange }) => {
     monaco.editor.defineTheme('atom-one-light', onelight)
     monaco.editor.setTheme(colorTheme === '' ? themeSystem : colorTheme)
   }
-
-  const themeSystem = checkIfIsDark() ? 'vs-dark' : 'vs'
 
   const options = {
     selectOnLineNumbers: true,
@@ -44,11 +46,12 @@ const Editor = ({ initialDoc, onChange }) => {
     <EditorCode
       value={initialDoc}
       theme={colorTheme === '' ? themeSystem : colorTheme}
-      language='markdown'
+      language={language}
       onChange={handleChange}
       className={style.editor}
       onMount={handleEditorDidMount}
       options={options}
+      loading={<Loading />}
     />
   )
 }
