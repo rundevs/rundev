@@ -15,7 +15,7 @@ const userSchema = new Schema({
   },
   photoUrl: {
     type: String,
-    trim: true,
+    trim: true
   },
   playgrounds: [{
     type: Schema.Types.ObjectId,

@@ -4,10 +4,10 @@ const fileSchema = new Schema({
   name: {
     type: String,
     trim: true,
-    required: true,
+    required: true
   },
   content: {
-    type: String,
+    type: String
   },
   playground_id: {
     required: true,
