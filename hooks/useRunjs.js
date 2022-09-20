@@ -1,13 +1,14 @@
 /* eslint-disable no-new-func */
 import { useEffect, useState } from 'react'
 
-const useRunCodeJavascript = (code) => {
+const useRunjs = (code) => {
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
 
-  const RunCodeWithFunction = (obj) => {
+  /** @param {string} codeString */
+  const RunCodeWithFunction = (codeString) => {
     try {
-      setResult(Function(`"use strict"; ${obj}`)())
+      setResult(Function(`"use strict"; ${codeString}`)())
     } catch (error) {
       setError(error)
     }
@@ -20,7 +21,7 @@ const useRunCodeJavascript = (code) => {
   return { result, error }
 }
 
-export default useRunCodeJavascript
+export default useRunjs
 
 /**
  * @todo runjs

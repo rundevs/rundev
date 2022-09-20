@@ -1,7 +1,8 @@
-import AppLayout from 'components/layout/AppLayout'
-import Loading from 'components/Loading'
 import dynamic from 'next/dynamic'
 import React, { Suspense } from 'react'
+import AppLayout from 'components/layout/AppLayout'
+import PreviewJs from 'components/Playground/Preview/PreviewJs'
+import Loading from 'components/Loading'
 
 const DynamicPlayground = dynamic(() => import('components/Playground'), { suspense: true, ssr: true })
 
@@ -10,7 +11,7 @@ const Javascript = () => {
     <AppLayout>
       <Suspense fallback={<Loading />}>
         <DynamicPlayground language='javascript'>
-          <div className='h-full w-full grid place-content-center place-items-center text-yellow-300 text-xl animate-pulse'>Run JavaScript is not available</div>
+          <PreviewJs />
         </DynamicPlayground>
       </Suspense>
     </AppLayout>
