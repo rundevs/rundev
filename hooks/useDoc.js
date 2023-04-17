@@ -3,6 +3,8 @@ import { DocContext } from 'context/DocProvider'
 import { INITIAL_DOC_JS, INITIAL_DOC_MD } from 'assets/constants'
 import { useRouter } from 'next/router'
 
+const langs = { '/md': INITIAL_DOC_MD, '/js': INITIAL_DOC_JS }
+
 const useDoc = () => {
   const { doc, setDoc } = useContext(DocContext)
 
@@ -17,13 +19,9 @@ const useDoc = () => {
   }, [])
 
   const handleInitialState = (lang) => {
-    switch (lang) {
-      case '/md':
-        setDoc(INITIAL_DOC_MD)
-        break
-      case '/js':
-        setDoc(INITIAL_DOC_JS)
-    }
+    Object.entries(langs).forEach(([langName, doc]) => {
+      lang === langName && setDoc(doc)
+    })
   }
 
   return { doc, setDoc, handleInitialState }
