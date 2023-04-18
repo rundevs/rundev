@@ -6,6 +6,13 @@ import useThemes from '../../../hooks/useThemes'
 import useSettings from 'hooks/useSettings'
 import useDoc from 'hooks/useDoc'
 
+const themes = {
+  'atom-one-dark': 'highlight.js/styles/atom-one-dark.css',
+  'atom-one-light': 'highlight.js/styles/atom-one-light.css',
+  'vs-dark': 'highlight.js/styles/github-dark-dimmed.css',
+  vs: 'highlight.js/styles/github.css'
+}
+
 const Preview = () => {
   const { checkIfIsDark } = useThemes()
   const { doc } = useDoc()
@@ -33,19 +40,10 @@ const Preview = () => {
 
   useEffect(() => {
     if (settings.colorTheme !== '') {
-      switch (settings.colorTheme) {
-        case 'atom-one-dark':
-          import('highlight.js/styles/atom-one-dark.css')
-          break
-        case 'atom-one-light':
-          import('highlight.js/styles/atom-one-light.css')
-          break
-        case 'vs-dark':
-          import('highlight.js/styles/github-dark-dimmed.css')
-          break
-        case 'vs':
-          import('highlight.js/styles/github.css')
-      }
+      Object.entries(themes)
+        .forEach(([themeName, themeContent]) => {
+          settings.colorTheme === themeName && import(themeContent)
+        })
     } else {
       checkIfIsDark()
         ? import('highlight.js/styles/github-dark-dimmed.css')
