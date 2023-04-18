@@ -37,9 +37,7 @@ const Theme = ({
     if (!resolved) return
 
     // If theme is system, resolve it before setting theme
-    if (theme === 'system' && enableSystem) {
-      resolved = getSystemTheme()
-    }
+    if (theme === 'system' && enableSystem) resolved = getSystemTheme()
 
     const name = value ? value[resolved] : resolved
     const enable = disableTransitionOnChange ? disableAnimation() : null
@@ -47,14 +45,9 @@ const Theme = ({
 
     if (attribute === 'class') {
       d.classList.remove(...attrs)
-
-      if (name) d.classList.add(name)
+      name && d.classList.add(name)
     } else {
-      if (name) {
-        d.setAttribute(attribute, name)
-      } else {
-        d.removeAttribute(attribute)
-      }
+      name ? d.setAttribute(attribute, name) : d.removeAttribute(attribute)
     }
 
     if (enableColorScheme) {
@@ -88,7 +81,7 @@ const Theme = ({
       applyTheme('system')
     }
   },
-  [theme, forcedTheme]
+    [theme, forcedTheme]
   )
 
   // Always listen to System preference
@@ -206,15 +199,10 @@ const ThemeScript = memo(({
     }
 
     if (attribute === 'class') {
-      if (literal || resolvedName) {
-        text += `c.add(${val})`
-      } else {
-        text += 'null'
-      }
+      if (literal || resolvedName) text += `c.add(${val})`
+      else text += 'null'
     } else {
-      if (resolvedName) {
-        text += `d[s](n,${val})`
-      }
+      if (resolvedName) text += `d[s](n,${val})`
     }
 
     return text
@@ -242,7 +230,5 @@ const ThemeScript = memo(({
   })()
 
   return <script nonce={nonce} dangerouslySetInnerHTML={{ __html: scriptSrc }} />
-},
-// Never re-render this component to server side rendering
-() => true
+}, () => true // Never re-render this component to server side rendering
 )
