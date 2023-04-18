@@ -6,7 +6,7 @@ const initialState = {
   wordWrap: 'on',
   colorTheme: '',
   fontSize: 14,
-  minimap: true,
+  minimap: false,
   language: 'en',
   storage: false,
   workspaces: true
@@ -23,7 +23,7 @@ const manameStorage = (property, obj) => {
   }
 }
 
-function getSettingStorage () {
+const getSettingStorage = () => {
   const storage = manameStorage('get')
   const currentState = storage ? JSON.parse(storage) : initialState
   return { ...currentState, storage: Boolean(storage) }
@@ -47,9 +47,7 @@ const SettingProvider = ({ children }) => {
   let subscribe = true
   useEffect(() => {
     if (subscribe) {
-      if (!settings.storage) {
-        manameStorage('set', settings)
-      }
+      !settings.storage && manameStorage('set', settings)
     }
     return () => {
       subscribe = false
