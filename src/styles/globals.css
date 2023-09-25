@@ -26,6 +26,7 @@
   --md-selection: #3E4451;
   --md-cursor: #3992ff;
 }
+
 /* :root light  */
 :root {
   --md-bg-1: var(--md-white);
@@ -47,6 +48,7 @@
   --md-theme: light;
   --md-text-selection: var(--md-divider-light-1);
 }
+
 /* :root dark */
 [data-theme='dark'] {
   --md-bg-1: #1e1e1e;
@@ -123,14 +125,25 @@
 }
 
 @font-face {
-  src: url('/seti.woff') format('woff');
+  /* src: url('/seti.eot'); */
+  src: url('/seti.woff') format('woff'),
+    /* url('/seti.eot?#iefix') format('eot'), */
+    /* url('/seti.ttf') format('truetype') */
+  ;
   font-family: 'seti';
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-*, :before,
+@font-face {
+  font-family: codicon;
+  font-display: block;
+  src: url('/codicon.ttf') format("truetype")
+}
+
+*,
+:before,
 :after {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -142,7 +155,7 @@ html {
 }
 
 body {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   padding: 0;
   margin: 0;
@@ -170,6 +183,7 @@ body {
   background: var(--md-text-selection);
   color: inherit;
 }
+
 /* Custom scroll-bar */
 ::-webkit-scrollbar {
   width: 14px;
