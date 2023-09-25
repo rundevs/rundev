@@ -6,7 +6,7 @@ dbConnect()
  * @param {NextApiRequest} req
  * @param {NextApiResponse} res
  */
-export default async function handler (req, res) {
+export default async function handler(req, res) {
   const { method } = req
 
   switch (method) {
