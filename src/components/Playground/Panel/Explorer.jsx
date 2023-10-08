@@ -1,10 +1,10 @@
 import React from 'react'
 
 const languagesCss = {
-  js: `before:text-[22px] before:content-["${String.fromCharCode(92)}E051"] before:text-yellow-300`,
-  md: `before:text-[22px] before:content-["${String.fromCharCode(92)}E04D"] before:text-blue-400`,
-  css: `before:text-[22px] before:content-["${String.fromCharCode(92)}E01D"] before:text-blue-400`,
-  html: `before:text-[22px] before:content-["${String.fromCharCode(92)}E048"] before:text-red-400`
+  js: <div className='before:text-[22px] before:content-["\E051"] before:text-yellow-300' />,
+  md: <div className='before:text-[22px] before:content-["\E04D"] before:text-blue-400' />,
+  css: <div className='before:text-[22px] before:content-["\E01D"] before:text-blue-400' />,
+  html: <div className='before:text-[22px] before:content-["\E048"] before:text-red-400' />
 }
 
 const folders = [
@@ -71,8 +71,14 @@ const Explorer = () => {
               <span>{folder.name}</span>
             </summary>
             {folder.files.map(file => (
-              <div key={file.id} className='flex items-center h-6 dark:hover:bg-secondary hover:bg-slate-200 overflow-hidden relative [&>div]:before:font-[seti]' title='note.js' aria-selected role='treeitem'>
-                <div className={languagesCss[file.language]} />
+              <div
+                key={file.id}
+                className='flex items-center h-6 dark:hover:bg-secondary hover:bg-slate-200 overflow-hidden relative [&>div]:before:font-[seti] cursor-pointer'
+                title={`${file.title}.${file.language}`}
+                aria-selected
+                role='treeitem'
+              >
+                {languagesCss[file.language]}
                 <span className='text-sm pl-1'>{file.title}.{file.language}</span>
               </div>
             ))}
