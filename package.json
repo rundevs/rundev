@@ -20,7 +20,7 @@
     "co": "sui-mono commit"
   },
   "dependencies": {
-    "@monaco-editor/react": "4.4.5",
+    "@monaco-editor/react": "^4.5.2",
     "eslint-config-next": "^13.5.2",
     "js-base64": "3.7.2",
     "mongoose": "6.5.1",
