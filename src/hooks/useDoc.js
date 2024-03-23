@@ -1,22 +1,21 @@
 import { useContext, useEffect } from 'react'
 import { DocContext } from 'context/DocProvider'
 import { INITIAL_DOC_JS, INITIAL_DOC_MD } from 'assets/constants'
-import { useRouter } from 'next/router'
+import useSelectedFile from './useSelectedFile'
 
-const langs = { '/md': INITIAL_DOC_MD, '/js': INITIAL_DOC_JS }
+const langs = { md: INITIAL_DOC_MD, js: INITIAL_DOC_JS }
 
 const useDoc = () => {
   const { doc, setDoc } = useContext(DocContext)
-
-  const router = useRouter()
+  const { selectedFile: { language } } = useSelectedFile()
 
   let subscribe = true
   useEffect(() => {
-    if (subscribe) handleInitialState(router.asPath)
+    if (subscribe) handleInitialState(language)
     return () => {
       subscribe = false
     }
-  }, [])
+  }, [language])
 
   const handleInitialState = (lang) => {
     Object.entries(langs).forEach(([langName, doc]) => {

@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext, useEffect, useState } from 'react'
 
 const SETTING_KEY = 'settings'
@@ -9,7 +10,8 @@ const initialState = {
   minimap: false,
   language: 'en',
   storage: false,
-  workspaces: true
+  workspaces: true,
+  menu: ''
 }
 
 const manameStorage = (property, obj) => {
@@ -41,9 +43,11 @@ const SettingProvider = ({ children }) => {
    *  language:string,
    *  storage: boolean,
    *  workspaces: boolean
+   *  menu: string
    * }]}
    */
   const [settings, setSettings] = useState(() => getSettingStorage())
+
   let subscribe = true
   useEffect(() => {
     if (subscribe) {
@@ -64,7 +68,7 @@ const SettingProvider = ({ children }) => {
   }, [settings.colorTheme])
 
   /**
-   * @param {'wordWrap' | 'colorTheme' | 'fontSize' | 'minimap' | 'language' | 'workspaces'}  name
+   * @param {'wordWrap' | 'colorTheme' | 'fontSize' | 'minimap' | 'language' | 'workspaces' | menu}  name
    */
   const updateSettings = (name, value) => {
     const newSettings = { ...settings, [name]: value }

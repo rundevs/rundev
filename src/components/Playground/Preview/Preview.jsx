@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useRef } from 'react'
 import highlightjs from 'highlight.js'
 import style from './preview.module.css'
@@ -5,6 +6,7 @@ import { marked } from 'marked'
 import useThemes from '../../../hooks/useThemes'
 import useSettings from 'hooks/useSettings'
 import useDoc from 'hooks/useDoc'
+import Loading from 'components/Loading'
 
 const themes = {
   'atom-one-dark': 'highlight.js/styles/atom-one-dark.css',
@@ -61,6 +63,7 @@ const Preview = () => {
 
   return (
     <div className='h-full w-full dark:bg-secondary bg-slate-50 relative box-border overflow-auto dark:text-white text-primary'>
+      {!doc && <Loading />}
       <div ref={refMarkdownHtml} className={style.markdown} />
     </div>
   )

@@ -3,7 +3,7 @@ import React from 'react'
 import useSettings from 'hooks/useSettings'
 
 const Settings = () => {
-  const { settings: { colorTheme, minimap, fontSize, wordWrap }, updateSettings } = useSettings()
+  const { settings: { colorTheme, minimap, fontSize, wordWrap }, menu, updateSettings } = useSettings()
 
   const handleMinimap = event => updateSettings('minimap', event.target.checked)
   const handleFontSize = event => updateSettings('fontSize', event.target.value)
@@ -11,7 +11,7 @@ const Settings = () => {
   const handleWordWrap = event => updateSettings('wordWrap', event.target.value)
 
   return (
-    <section className='flex flex-col w-full h-full text-primary dark:text-slate-200 overflow-y-auto overflow-x-hidden relative [&>article]:flex [&>article]:flex-col [&>article]:p-4 [&>article]:w-full [&>article]:h-max [&>article]:relative [&>article]:text-sm'>
+    <section aria-expanded={menu.settings} className='hidden aria-expanded:flex flex-col w-full h-full text-primary dark:text-slate-200 overflow-y-auto overflow-x-hidden relative [&>article]:flex [&>article]:flex-col [&>article]:p-4 [&>article]:w-full [&>article]:h-max [&>article]:relative [&>article]:text-sm'>
       <article className='focus-within:border border border-transparent focus-within:border-gray-600 dark:hover:bg-neutral-700/50 hover:bg-slate-200'>
         <header className='flex flex-row items-center gap-1 font-bold text-base mt-1'>
           <span className='dark:text-neutral-400'>Editor:</span>

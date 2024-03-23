@@ -1,11 +1,7 @@
-import React from 'react'
-
-const languagesCss = {
-  js: <div className='before:text-[22px] before:content-["\E051"] before:text-yellow-300' />,
-  md: <div className='before:text-[22px] before:content-["\E04D"] before:text-blue-400' />,
-  css: <div className='before:text-[22px] before:content-["\E01D"] before:text-blue-400' />,
-  html: <div className='before:text-[22px] before:content-["\E048"] before:text-red-400' />
-}
+'use client'
+import useSettings from 'hooks/useSettings'
+import File from './File'
+import Link from 'next/link'
 
 const folders = [
   {
@@ -13,22 +9,22 @@ const folders = [
     name: 'proyecto-1',
     files: [
       {
-        id: '0',
+        id: '100-0',
         title: 'readme',
         language: 'md'
       },
       {
-        id: '1',
+        id: '100-1',
         title: 'global',
         language: 'css'
       },
       {
-        id: '2',
+        id: '100-2',
         title: 'index',
         language: 'html'
       },
       {
-        id: '3',
+        id: '100-3',
         title: 'main',
         language: 'js'
       }
@@ -39,17 +35,17 @@ const folders = [
     name: 'spa-project',
     files: [
       {
-        id: '0',
+        id: '101-0',
         title: 'readme',
         language: 'md'
       },
       {
-        id: '1',
+        id: '101-1',
         title: 'main',
         language: 'js'
       },
       {
-        id: '2',
+        id: '101-2',
         title: 'counter',
         language: 'js'
       }
@@ -58,8 +54,10 @@ const folders = [
 ]
 
 const Explorer = () => {
+  const { menu } = useSettings()
+
   return (
-    <section className='dark:bg-primary flex flex-col w-full h-full justify-start'>
+    <section aria-expanded={menu.explorer} className='dark:bg-primary hidden flex-col w-full h-full justify-start aria-expanded:flex'>
       <header className='{style.header} h-12 relative flex flex-shrink-0 flex-row items-center dark:bg-secondary bg-slate-50'>
         <h2 className='text-sm dark:text-gray-300 font-normal uppercase pl-4'>Explorer</h2>
       </header>
@@ -70,20 +68,12 @@ const Explorer = () => {
             <summary className='h-6 w-full relative pl-2 m-0 flex items-center cursor-pointer border border-transparent font-medium text-sm leading-5 before:content-["\eab6"] before:font-[codicon] before:text-base before:mr-2 focus:border focus:border-blue-500 dark:hover:bg-secondary hover:bg-slate-200'>
               <span>{folder.name}</span>
             </summary>
-            {folder.files.map(file => (
-              <div
-                key={file.id}
-                className='flex items-center h-6 dark:hover:bg-secondary hover:bg-slate-200 overflow-hidden relative [&>div]:before:font-[seti] cursor-pointer'
-                title={`${file.title}.${file.language}`}
-                aria-selected
-                role='treeitem'
-              >
-                {languagesCss[file.language]}
-                <span className='text-sm pl-1'>{file.title}.{file.language}</span>
-              </div>
+            {folder.files.map((file, index) => (
+              <File key={index} file={file} folderId={folder.id} />
             ))}
           </details>
         ))}
+        <Link href='/dashboard'>Go to DashBoard</Link>
       </div>
     </section>
   )

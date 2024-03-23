@@ -4,7 +4,7 @@ import GoogleProvider from 'next-auth/providers/google'
 import config from 'assets/config'
 
 /** @todo add google provider */
-export default NextAuth({
+const handler = NextAuth({
   providers: [
     GithubProvider({
       clientId: config.clientGitHub,
@@ -22,3 +22,5 @@ export default NextAuth({
   },
   debug: false
 })
+
+export { handler as GET, handler as POST }
